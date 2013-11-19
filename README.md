@@ -1,4 +1,0 @@
-toy
-===
-
-Breakable Toy
