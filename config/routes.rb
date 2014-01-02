@@ -1,3 +1,3 @@
 Toy::Application.routes.draw do
-  resources :toy
+  resources :restrooms, path: 'restrooms'
 end
