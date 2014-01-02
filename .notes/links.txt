@@ -1,0 +1,8 @@
+http://css-tricks.com/star-ratings/
+- full stars
+
+http://jsfiddle.net/LTQrZ/20/
+- half stars
+
+http://www.youtube.com/watch?v=R0l-7en3dUw&feature=youtu.be
+- Google Maps pins & latitude/longitude

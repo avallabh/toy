@@ -38,7 +38,12 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
 end
+
+gem 'devise'
+gem 'simple_form'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
