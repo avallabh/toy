@@ -16,8 +16,6 @@ street_address:    string
 city:              string
 state:             string
 zip:               string
-
-# all attributes of address
 id:                integer, required
 
  Reviews
