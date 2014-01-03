@@ -1,22 +1,37 @@
 require 'spec_helper'
 
-## ENTIRE SPEC IS IDENTICAL TO add_map_spec
-## NEEDS TO BE REWRITTEN FOR A USER
-## AFTER I IMPLEMENT A USER VIA DEVISE
-feature 'add map', %Q{
-As a user
-I want to see the map
-So I can find/add a restroom
+feature 'guest can register', %Q{
+As a guest user
+I want to create a free account
+So I can add restaurants and reviews
 } do
 
 # ACCEPTANCE CRITERIA
-# * Display a map
-# * Let user add a pin
+# * If user is not logged in, display a sign-in / sign-up option
+# * User provides required info: first/last name, password, retype password (must match password),
+#   email, retype email (must match email)
+# * If signed in, display sign-out option
 
-  scenario 'display map' do
+  scenario 'user signs up' do
+    password = "password"
+    email = "person@example.com"
+
     visit restrooms_path
+    click_on "Register"
+    fill_in "First Name", with: "Joe"
+    fill_in "Last Name", with: "Smith"
+    fill_in "Password", with: password
+    fill_in "Confirm Password", with: password
+    fill_in "Email", with: email
+    fill_in "Confirm Email", with: email
+    click_on "Sign In"
 
-    expect(page).to have_content('Gotta Go')
+    expect(page).to have_content('Sign Out')
+    expect(page).to_not have_content('Sign In')
+    expect(page).to_not have_content('Register')
   end
+
+  scenario 'user is registered but not logged in so they log in'
+  scenario 'user is signed in so they log out'
 
 end
