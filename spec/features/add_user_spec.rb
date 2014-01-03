@@ -16,22 +16,46 @@ So I can add restaurants and reviews
     password = "password"
     email = "person@example.com"
 
-    visit restrooms_path
-    click_on "Register"
+    visit root_path
+    click_link "Sign Up"
     fill_in "First Name", with: "Joe"
     fill_in "Last Name", with: "Smith"
-    fill_in "Password", with: password
-    fill_in "Confirm Password", with: password
     fill_in "Email", with: email
-    fill_in "Confirm Email", with: email
-    click_on "Sign In"
+    # fill_in "Confirm Email", with: email
+    fill_in "user_password", with: password
+    fill_in "Password Confirmation", with: password
+    click_button "Sign Up"
 
+    expect(page).to have_content('Login successful!')
     expect(page).to have_content('Sign Out')
     expect(page).to_not have_content('Sign In')
     expect(page).to_not have_content('Register')
   end
 
-  scenario 'user is registered but not logged in so they log in'
-  scenario 'user is signed in so they log out'
+  scenario 'required information not supplied' do
+    visit root_path
+    click_link "Sign Up"
+    click_button "Sign Up"
+
+    expect(page).to have_content("can't be blank")
+    expect(page).to_not have_content("Sign Out")
+  end
+
+  scenario 'password confirmation' do
+    email = "person@example.com"
+
+    visit root_path
+    click_link "Sign Up"
+    fill_in "First Name", with: "Joe"
+    fill_in "Last Name", with: "Smith"
+    fill_in "Email", with: email
+    # fill_in "Confirm Email", with: email
+    fill_in "user_password", with: "password"
+    fill_in "Password Confirmation", with: "theyDontMatch"
+    click_button "Sign Up"
+
+    expect(page).to have_content("doesn't match")
+    expect(page).to_not have_content("Sign Out")
+  end
 
 end
