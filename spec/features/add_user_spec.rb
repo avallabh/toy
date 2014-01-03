@@ -1,5 +1,8 @@
 require 'spec_helper'
 
+## ENTIRE SPEC IS IDENTICAL TO add_map_spec
+## NEEDS TO BE REWRITTEN FOR A USER
+## AFTER I IMPLEMENT A USER VIA DEVISE
 feature 'add map', %Q{
 As a user
 I want to see the map
