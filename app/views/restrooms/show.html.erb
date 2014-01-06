@@ -1,0 +1,41 @@
+<% title "Restroom" %>
+<!--
+// HEADER LINKS
+// Take comments out of ERB tags
+
+<p>
+  <#%= link_to 'Add Review', PATH_GOES_HERE =>
+</p>
+
+-->
+
+<p><strong>Address:</strong>
+<%= @restroom.address %></p>
+
+<p><strong>Accessible:</strong>
+<%= @restroom.reviews.accessible %></p>
+
+<p><strong>Cleanliness:</strong>
+<%= @restroom.reviews.cleanliness %></p>
+
+<p><strong>Privacy:</strong>
+<%= @restroom.reviews.privacy %></p>
+
+<p><strong>Smell:</strong>
+<%= @restroom.reviews.smell %></p>
+
+<p><strong>Gender:</strong>
+<%= @restroom.reviews.gender %></p>
+
+<p><strong>Comments:</strong>
+<%= @restroom.reviews.comments %></p>
+
+<!--
+// FOOTER LINKS
+// Take comments out of ERB tags
+
+<p>
+  <#%= link_to 'Back to Home', root_path =>
+</p>
+
+-->
