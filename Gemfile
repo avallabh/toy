@@ -48,6 +48,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'foundation-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
