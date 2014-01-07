@@ -26,7 +26,6 @@ So I can add restaurants and reviews
     fill_in "Password Confirmation", with: password
     click_button "Sign Up"
 
-    expect(page).to have_content('Login successful!')
     expect(page).to have_content('Sign Out')
     expect(page).to_not have_content('Sign In')
     expect(page).to_not have_content('Register')
