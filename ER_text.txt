@@ -33,7 +33,7 @@ comments:          text
 
 
 
- Restroom Criterion (rated 1-5 (JS) unless otherwise stated (dropdowns))
+ Restroom Criterion [rated 1-5 (JS) unless otherwise stated (dropdowns)]
 --------------------
 cleanliness
 privacy
