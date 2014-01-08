@@ -28,48 +28,40 @@
 
 </head>
 <body>
-<!--
-<table height="700" width="800" border="0" align="center">
-  <tr height="45">
-    <td>&nbsp;</td>
-  </tr>
-  <tr><td>
-  -->
-  <!-- nested table -->
-  <table align="center" height="655" width="800" border-style="solid" border-width="1px" cellpadding="0" cellspacing="0">
-    <!-- <colgroup>
-    <col width="25%">
-    <col width="25%">
-    <col width="25%">
-    <col width="25%">
-  </colgroup> -->
-  <tr align="center" height="55">
-    <td width="400">
-      <div>
-        <a href="<%= root_path %>" class="large button">Gotta Go!</a>
-      </div>
-    </td>
-    <td width="400">
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="#">Gotta Go!</a></h1>
+      </li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+
       <% if user_signed_in? %>
-      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-      <% else %>
       <div class="button-bar">
-        <ul class="button-group">
-          <li><a href="<%= new_user_registration_path %>" class="small button">Sign Up</a></li>
-          <li><a href="<%= new_user_session_path %>" class="small button">Sign In</a></li>
+        <ul class="button-group right">
+          <li><a href="<%= destroy_user_session_path, method: :delete %>" class="button">Log Out</li>
         </ul>
       </div>
-      <% end %>
-    </td>
-  </tr>
-  <!--
-    <tr>
-      <td colspan="2" height="75" align="center">Nearest Restrooms</td>
-      <td colspan="2">
-        Search Bar
-      </td>
-    </tr>
-  -->
+      <% else %>
+
+      <div class="button-bar">
+        <ul class="button-group right">
+          <li><a href="<%= new_user_registration_path %>" class="button">Sign Up</a></li>
+          <li><a href="<%= new_user_session_path %>" class="button">Sign In</a></li>
+      </ul>
+    </div>
+
+    <% end %>
+  </ul>
+</div>
+<!-- Left Nav Section -->
+
+</section>
+</nav>
+<table align="center" height="655" width="800" border-style="solid" border-width="1px" cellpadding="0" cellspacing="0">
+
   <tr>
     <td width="400">list of restrooms</td>
     <td width="400" valign="top">MAP GOES HERE 400x400
@@ -82,10 +74,6 @@
     </td>
   </tr>
 </table>
-<!-- end nested -->
-<!--
-</td></tr>
-</table>
--->
+
 </body>
 </html>
