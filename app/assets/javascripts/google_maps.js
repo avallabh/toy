@@ -3,10 +3,11 @@
 // is probably because you have denied permission for location sharing.
 
 var map;
+var marker;
 
 function initialize() {
   var mapOptions = {
-    zoom: 10
+    zoom: 18
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
@@ -35,11 +36,9 @@ function initialize() {
   // adds markers onClick
   google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
-    debugger
   });
 }
 
-// b: 42.348010688586555, d: -71.07204526662827,
 function handleNoGeolocation(errorFlag) {
   if (errorFlag) {
     var content = 'Error: The Geolocation service failed.';
@@ -59,10 +58,17 @@ function handleNoGeolocation(errorFlag) {
 
 // place markers on map
 function placeMarker(location) {
-  var marker = new google.maps.Marker({
-    position: location,
-    map: map
-  });
+  if (marker) { marker.setPosition(location);
+  } else {
+    marker = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+  }
+  // var marker; = new google.maps.Marker({
+  //   position: location,
+  //   map: map
+  // });
 }
 
 // loads map with geolocation

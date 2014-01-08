@@ -9,3 +9,6 @@ http://www.youtube.com/watch?v=R0l-7en3dUw&feature=youtu.be
 
 http://foundation.zurb.com/docs/components/grid.html
 -- Zurb Foundation Grids
+
+http://www.postgis.us/downloads/postgis21_cheatsheet.pdf
+--PostGIS CheatSheet, used for coordinates to get distance
