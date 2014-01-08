@@ -1,0 +1,8 @@
+<h1>Add Restroom</h1>
+
+<%= simple_form_for(@restroom) do |f| %> <!-- (@restroom, url: PATH_TO_NEW) -->
+  <%= f.input :location_name %>
+  <%= f.input :latitude%> <!-- , readonly: true -->
+  <%= f.input :longitude %>
+  <%= f.button :submit, 'Add Restroom', class: 'button' %>
+<% end %>
