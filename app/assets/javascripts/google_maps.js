@@ -1,4 +1,4 @@
-// Note: This example requires that you consent to location sharing when
+// Note: This requires that you consent to location sharing when
 // prompted by your browser. If you see a blank space instead of the map, this
 // is probably because you have denied permission for location sharing.
 
@@ -6,7 +6,7 @@ var map;
 
 function initialize() {
   var mapOptions = {
-    zoom: 17
+    zoom: 10
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
@@ -33,11 +33,13 @@ function initialize() {
   }
 
   // adds markers onClick
-  google.maps.event.addListener(marker, 'click', function(event) {
+  google.maps.event.addListener(map, 'click', function(event) {
     placeMarker(event.latLng);
+    debugger
   });
 }
 
+// b: 42.348010688586555, d: -71.07204526662827,
 function handleNoGeolocation(errorFlag) {
   if (errorFlag) {
     var content = 'Error: The Geolocation service failed.';
@@ -56,18 +58,12 @@ function handleNoGeolocation(errorFlag) {
 }
 
 // place markers on map
-// function placeMarker(location) {
-//   var marker = new google.maps.Marker({
-//     position: location,
-//     map: map
-//   });
-// }
+function placeMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map
+  });
+}
 
 // loads map with geolocation
 google.maps.event.addDomListener(window, 'load', initialize);
-
-//adds markers onClick
-// google.maps.event.addListener(marker, 'click', function(event) {
-//   placeMarker(event.latLng);
-// });
-//}
