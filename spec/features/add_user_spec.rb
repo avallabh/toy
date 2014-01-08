@@ -28,7 +28,7 @@ So I can add restaurants and reviews
 
     expect(page).to have_content('Sign Out')
     expect(page).to_not have_content('Sign In')
-    expect(page).to_not have_content('Register')
+    expect(page).to_not have_content('Sign Up')
   end
 
   scenario 'required information not supplied' do
@@ -37,7 +37,7 @@ So I can add restaurants and reviews
     click_button "Sign Up"
 
     expect(page).to have_content("can't be blank")
-    expect(page).to_not have_content("Sign Out")
+    expect(page).to_not have_content("Sign In")
   end
 
   scenario 'password confirmation' do
