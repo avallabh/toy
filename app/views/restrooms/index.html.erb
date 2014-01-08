@@ -41,15 +41,22 @@
       <% if user_signed_in? %>
       <div class="button-bar">
         <ul class="button-group right">
-          <li><a href="<%= destroy_user_session_path, method: :delete %>" class="button">Log Out</li>
-        </ul>
-      </div>
-      <% else %>
+          <li><h1><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></h1></li>
+        <!--<li><a href="/users/sign_out" class="button">Sign Out</a></li>-->
+      </ul>
+    </div>
+    <% else %>
 
-      <div class="button-bar">
-        <ul class="button-group right">
-          <li><a href="<%= new_user_registration_path %>" class="button">Sign Up</a></li>
-          <li><a href="<%= new_user_session_path %>" class="button">Sign In</a></li>
+    <div class="button-bar">
+      <ul class="button-group right">
+          <!--
+          <li><h1><%= link_to 'Sign Up', new_user_registration_path %></h1></li>
+          <li><h1><%= link_to 'Sign In', new_user_session_path %></h1></li>
+        -->
+
+        <li><a href="<%= new_user_registration_path %>" class="button">Sign Up</a></li>
+        <li><a href="<%= new_user_session_path %>" class="button">Sign In</a></li>
+
       </ul>
     </div>
 
