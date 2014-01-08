@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Geolocation</title>
+  <title>Gotta Go!</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
   <style>
-  html, body {
+  /*html, body {
     height: 100%;
     margin: 0px;
     padding: 0px
-  }
+  }*/
   #map-canvas {
     height: 400px;
     width: 400px;
@@ -21,123 +21,13 @@
     Include the maps javascript with sensor=true because this code is using a
     sensor (a GPS locator) to determine the user's location.
     See: https://developers.google.com/maps/documentation/javascript/tutorial#Loading_the_Maps_API
-  -->
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBY3appHAkQeRQJVGwOi1p80XybQQc-BC0&sensor=true"></script>
 
-  <script>
-// Note: This example requires that you consent to location sharing when
-// prompted by your browser. If you see a blank space instead of the map, this
-// is probably because you have denied permission for location sharing.
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script> -->
 
-/* ...BEGIN JAVASCRIPT COMMENT BLOCK
-var map;
-
-function initialize() {
-  var mapOptions = {
-    zoom: 17
-  };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-    mapOptions);
-
-  // Try HTML5 geolocation
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-       position.coords.longitude);
-
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: 'Current location.'
-      });
-
-      map.setCenter(pos);
-    }, function() {
-      handleNoGeolocation(true);
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleNoGeolocation(false);
-  }
-
-  // adds markers onClick
-  google.maps.event.addListener(marker, 'click', function(event) {
-    placeMarker(event.latLng);
-  });
-}
-
-function handleNoGeolocation(errorFlag) {
-  if (errorFlag) {
-    var content = 'Error: The Geolocation service failed.';
-  } else {
-    var content = 'Error: Your browser doesn\'t support geolocation.';
-  }
-
-  var options = {
-    map: map,
-    position: new google.maps.LatLng(60, 105),
-    content: content
-  };
-
-  var infowindow = new google.maps.InfoWindow(options);
-  map.setCenter(options.position);
-}
-
-// place markers on map
-// function placeMarker(location) {
-//   var marker = new google.maps.Marker({
-//     position: location,
-//     map: map
-//   });
-// }
-
-// loads map with geolocation
-google.maps.event.addDomListener(window, 'load', initialize);
-
-//adds markers onClick
-// google.maps.event.addListener(marker, 'click', function(event) {
-//   placeMarker(event.latLng);
-// });
-//}
-*/
-</script>
 </head>
 <body>
-
-<!--
-<div class="row">
-  <div class="small-2 large-4 columns">...</div>
-  <div class="small-4 large-4 columns">...</div>
-  <div class="small-6 large-4 columns">...</div>
-</div>
-<div class="row">
-  <div class="large-3 columns">...</div>
-  <div class="large-6 columns">...</div>
-  <div class="large-3 columns">...</div>
-</div>
-<div class="row">
-  <div class="small-6 large-2 columns">...</div>
-  <div class="small-6 large-8 columns">...</div>
-  <div class="small-12 large-2 columns">...</div>
-</div>
-<div class="row">
-  <div class="small-3 columns">...</div>
-  <div class="small-9 columns">...</div>
-</div>
-<div class="row">
-  <div class="large-4 columns">...</div>
-  <div class="large-8 columns">...</div>
-</div>
-<div class="row">
-  <div class="small-6 large-5 columns">...</div>
-  <div class="small-6 large-7 columns">...</div>
-</div>
-<div class="row">
-  <div class="large-6 columns">...</div>
-  <div class="large-6 columns">...</div>
-</div>
--->
-
 
 <table height="700" width="800" border="0" align="center">
   <tr height="45">
