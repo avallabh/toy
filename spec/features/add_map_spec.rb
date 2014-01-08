@@ -12,7 +12,6 @@ So I can find/add a restroom
 
   scenario 'display map' do
     visit restrooms_path
-
     expect(page).to have_content('Gotta Go')
   end
 
