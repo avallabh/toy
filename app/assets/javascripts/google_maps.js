@@ -7,7 +7,7 @@ var marker;
 
 function initialize() {
   var mapOptions = {
-    zoom: 18
+    zoom: 19
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
