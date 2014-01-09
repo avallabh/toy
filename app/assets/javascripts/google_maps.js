@@ -2,6 +2,8 @@
 // prompted by your browser. If you see a blank space instead of the map, this
 // is probably because you have denied permission for location sharing.
 
+// 42.3516303  - LAT
+// -71.0614178 - LONG
 var map;
 var marker;
 
@@ -35,6 +37,9 @@ function initialize() {
 
   // adds markers onClick
   google.maps.event.addListener(map, 'click', function(event) {
+    var latitude = event.latLng.lat();
+    var longitude = event.latLng.lng();
+    console.log( latitude + ', ' + longitude ); // outputs lat/long to console for testing
     placeMarker(event.latLng);
   });
 }
