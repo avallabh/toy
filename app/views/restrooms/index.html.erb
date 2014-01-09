@@ -66,24 +66,34 @@
 
 </section>
 </nav>
-<table align="center" height="655" width="800" border-style="solid" border-width="1px" cellpadding="0" cellspacing="0">
 
-  <tr>
-    <td width="400">
-      <span><h2>Add Restroom</h2><h6 class="subheader">Must be signed in</h6></span>
-      <%= simple_form_for(@restroom) do |f| %> <!-- (@restroom, url: PATH_TO_NEW) -->
-      <%= f.input :location_name, label: 'Location Name' %>
-      <%= f.hidden_field :latitude, readonly: true %>
-      <!-- , label: 'Latitude', placeholder: 'Latitude (read-only)' , readonly: true -->
-      <%= f.hidden_field :longitude, readonly: true%>
-      <%= f.button :submit, 'Add Restroom', class: 'button' %>
-      <% end %>
-    </td>
-    <td width="400" valign="top">
-      <div id="map-canvas"></div>
-    </td>
-  </tr>
-</table>
+<div class="row">
+  <!-- left side -->
+  <div class="large-6 columns">
+    <p>&nbsp;</p>
+    <h3 class="header">Click a marker to view information and reviews.</h3>
+    <br/>
+    <h3 class="header">Need to add a restroom?</h3><h6 class="subheader">Must be signed in</h4>
+
+    1) Click on the map to add a marker.<br/>
+    2) Enter a location name.<br/>
+    3) Add Restroom!<br/>
+    <p>&nbsp;</p>
+    <%= simple_form_for(@restroom) do |f| %> <!-- (@restroom, url: PATH_TO_NEW) -->
+    <%= f.input :location_name, label: 'Location Name' %>
+    <%= f.hidden_field :latitude, readonly: true %>
+    <!-- , label: 'Latitude', placeholder: 'Latitude (read-only)' , readonly: true -->
+    <%= f.hidden_field :longitude, readonly: true%>
+    <%= f.button :submit, 'Add Restroom', class: 'button' %>
+    <% end %>
+  </div>
+  <!-- right side -->
+  <div class="large-6 columns">
+        <p>&nbsp;</p>
+    <div id="map-canvas"></div>
+  </div>
+</div>
+
 
 </body>
 </html>

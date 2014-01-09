@@ -14,6 +14,11 @@ feature 'add a restroom', %Q{
 # * User submits it
 
   scenario 'authenticated user adds a restroom' do
+    visit root_path
+    uri = URI.parse(current_url)
+    fill_in "Location Name", with: "Dunkin Donuts"
+    click_on "Add Restroom"
+    "#{uri.path}".should == root_path
   end
 
 end
