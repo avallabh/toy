@@ -1,12 +1,9 @@
 class RestroomsController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new, :create, :show]
+  before_action :authenticate_user!, only: [:new, :create] # , :show
 
   def index
     @restrooms = Restroom.all
-  end
-
-  def new
     @restroom = Restroom.new
   end
 

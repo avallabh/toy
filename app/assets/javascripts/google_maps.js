@@ -37,9 +37,11 @@ function initialize() {
 
   // adds markers onClick
   google.maps.event.addListener(map, 'click', function(event) {
-    var latitude = event.latLng.lat();
-    var longitude = event.latLng.lng();
+    latitude = event.latLng.lat();
+    longitude = event.latLng.lng();
     console.log( latitude + ', ' + longitude ); // outputs lat/long to console for testing
+    $('#restroom_latitude').val(latitude);
+    $('#restroom_longitude').val(longitude);
     placeMarker(event.latLng);
   });
 }

@@ -23,7 +23,6 @@
     See: https://developers.google.com/maps/documentation/javascript/tutorial#Loading_the_Maps_API
   -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBY3appHAkQeRQJVGwOi1p80XybQQc-BC0&sensor=true"></script>
-
   <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script> -->
 
 </head>
@@ -42,14 +41,14 @@
       <div class="button-bar">
         <ul class="button-group right">
           <li><h3><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></h1></li>
-        <!--<li><a href="/users/sign_out" class="button">Sign Out</a></li>-->
-      </ul>
-    </div>
-    <% else %>
+          <!--<li><a href="/users/sign_out" class="button">Sign Out</a></li>-->
+        </ul>
+      </div>
+      <% else %>
 
-    <div class="button-bar">
-      <ul class="button-group right">
-          <!--
+      <div class="button-bar">
+        <ul class="button-group right">
+        <!--
           <li><h1><%= link_to 'Sign Up', new_user_registration_path %></h1></li>
           <li><h1><%= link_to 'Sign In', new_user_session_path %></h1></li>
         -->
@@ -70,17 +69,18 @@
 <table align="center" height="655" width="800" border-style="solid" border-width="1px" cellpadding="0" cellspacing="0">
 
   <tr>
-    <td width="400">list of restrooms</td>
+    <td width="400">
+      <span><h2>Add Restroom</h2><h6 class="subheader">Must be signed in</h6></span>
+      <%= simple_form_for(@restroom) do |f| %> <!-- (@restroom, url: PATH_TO_NEW) -->
+      <%= f.input :location_name, label: 'Location Name' %>
+      <%= f.hidden_field :latitude, readonly: true %>
+      <!-- , label: 'Latitude', placeholder: 'Latitude (read-only)' , readonly: true -->
+      <%= f.hidden_field :longitude, readonly: true%>
+      <%= f.button :submit, 'Add Restroom', class: 'button' %>
+      <% end %>
+    </td>
     <td width="400" valign="top">
       <div id="map-canvas"></div>
-      <br/>
-      <p><br/>
-
-        Click on a location to add a marker.<br/>
-
-        <a href="<%= new_restroom_path %>" class="large button">Add Restroom</a><br/>
-        (Note: You must be signed in.)
-      </p>
     </td>
   </tr>
 </table>
