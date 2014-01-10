@@ -9,66 +9,91 @@
     height: 100%;
     margin: 0px;
     padding: 0px
-  }*/
-  #map-canvas {
-    height: 400px;
-    width: 400px;
-    margin: 0px;
-    padding: 0px
-  }
-  </style>
+    }*/
+    #map-canvas {
+      height: 400px;
+      width: 400px;
+      margin: 0px;
+      padding: 0px
+    }
+    </style>
     <!--
     Include the maps javascript with sensor=true because this code is using a
     sensor (a GPS locator) to determine the user's location.
     See: https://developers.google.com/maps/documentation/javascript/tutorial#Loading_the_Maps_API
-    -->
+  -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBY3appHAkQeRQJVGwOi1p80XybQQc-BC0&sensor=true"></script>
-
   <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script> -->
 
 </head>
 <body>
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="#">Gotta Go!</a></h1>
+      </li>
+    </ul>
 
-<table height="700" width="800" border="0" align="center">
-  <tr height="45">
-    <td>&nbsp;</td>
-  </tr>
-  <tr><td>
-    <!-- nested table -->
-    <table height="655" width="800" border-style="solid" border-width="1px" cellpadding="0" cellspacing="0">
-      <colgroup>
-      <col width="25%">
-      <col width="25%">
-      <col width="25%">
-      <col width="25%">
-    </colgroup>
-    <tr align="center" height="55">
-      <td colspan="3">Gotta Go!</td>
-      <td colspan="1">
-        <% if user_signed_in? %>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-        <% else %>
-        <%= link_to 'Sign Up', new_user_registration_path %> |
-        <%= link_to 'Sign In', new_user_session_path %>
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2" height="75" align="center">Nearest Restrooms</td>
-      <td colspan="2">
-        Search Bar
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">list of restrooms</td>
-      <td colspan="2">Map commented out
-        <!--<div id="map-canvas">--></div>
-      </td>
-    </tr>
-  </table>
-  <!-- end nested -->
-</td></tr>
-</table>
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+
+      <% if user_signed_in? %>
+      <div class="button-bar">
+        <ul class="button-group right">
+          <li><h3><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></h1></li>
+          <!--<li><a href="/users/sign_out" class="button">Sign Out</a></li>-->
+        </ul>
+      </div>
+      <% else %>
+
+      <div class="button-bar">
+        <ul class="button-group right">
+        <!--
+          <li><h1><%= link_to 'Sign Up', new_user_registration_path %></h1></li>
+          <li><h1><%= link_to 'Sign In', new_user_session_path %></h1></li>
+        -->
+
+        <li><a href="<%= new_user_registration_path %>" class="button">Sign Up</a></li>
+        <li><a href="<%= new_user_session_path %>" class="button">Sign In</a></li>
+
+      </ul>
+    </div>
+
+    <% end %>
+  </ul>
+</div>
+<!-- Left Nav Section -->
+
+</section>
+</nav>
+
+<div class="row">
+  <!-- left side -->
+  <div class="large-6 columns">
+    <p>&nbsp;</p>
+    <h3 class="header">Click a marker to view information and reviews.</h3>
+    <br/>
+    <h3 class="header">Need to add a restroom?</h3><h6 class="subheader">Must be signed in</h4>
+
+    1) Click on the map to add a marker.<br/>
+    2) Enter a location name.<br/>
+    3) Add Restroom!<br/>
+    <p>&nbsp;</p>
+    <%= simple_form_for(@restroom) do |f| %> <!-- (@restroom, url: PATH_TO_NEW) -->
+    <%= f.input :location_name, label: 'Location Name' %>
+    <%= f.hidden_field :latitude, readonly: true %>
+    <!-- , label: 'Latitude', placeholder: 'Latitude (read-only)' , readonly: true -->
+    <%= f.hidden_field :longitude, readonly: true%>
+    <%= f.button :submit, 'Add Restroom', class: 'button' %>
+    <% end %>
+    <%= notice %>
+  </div>
+  <!-- right side -->
+  <div class="large-6 columns">
+        <p>&nbsp;</p>
+    <div id="map-canvas"></div>
+  </div>
+</div>
 
 </body>
 </html>

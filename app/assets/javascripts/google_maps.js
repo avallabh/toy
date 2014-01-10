@@ -2,12 +2,14 @@
 // prompted by your browser. If you see a blank space instead of the map, this
 // is probably because you have denied permission for location sharing.
 
+// 42.3516303  - LAT
+// -71.0614178 - LONG
 var map;
 var marker;
 
 function initialize() {
   var mapOptions = {
-    zoom: 18
+    zoom: 19
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
@@ -35,8 +37,23 @@ function initialize() {
 
   // adds markers onClick
   google.maps.event.addListener(map, 'click', function(event) {
+    latitude = event.latLng.lat();
+    longitude = event.latLng.lng();
+    console.log( latitude + ', ' + longitude ); // outputs lat/long to console for testing
+    $('#restroom_latitude').val(latitude);
+    $('#restroom_longitude').val(longitude);
     placeMarker(event.latLng);
   });
+
+  $.get('/restrooms.json', function(data) {
+    for (var i = 0; i < data.length; i++) {
+      var position =
+        new google.maps.LatLng(data[i].latitude, data[i].longitude);
+
+      var marker =
+        new google.maps.Marker({ position: position, map: map });
+    }
+  })
 }
 
 function handleNoGeolocation(errorFlag) {
