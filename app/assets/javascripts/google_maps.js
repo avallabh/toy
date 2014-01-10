@@ -44,6 +44,16 @@ function initialize() {
     $('#restroom_longitude').val(longitude);
     placeMarker(event.latLng);
   });
+
+  $.get('/restrooms.json', function(data) {
+    for (var i = 0; i < data.length; i++) {
+      var position =
+        new google.maps.LatLng(data[i].latitude, data[i].longitude);
+
+      var marker =
+        new google.maps.Marker({ position: position, map: map });
+    }
+  })
 }
 
 function handleNoGeolocation(errorFlag) {
