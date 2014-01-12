@@ -1,0 +1,24 @@
+<h3>Location: <%= @restroom.location_name %></h3>
+
+<p><strong>Cleanliness:</strong>
+<%= @restroom.reviews.cleanliness %></p>
+
+<p><strong>Privacy:</strong>
+<%= @restroom.reviews.privacy %></p>
+
+<p><strong>Smell:</strong>
+<%= @restroom.reviews.smell %></p>
+
+<p><strong>Accessibility:</strong>
+<%= @restroom.reviews.accessible %></p>
+
+<p><strong>Gender:</strong>
+<%= @restroom.reviews.gender %></p>
+
+<p><strong>Comments:</strong>
+<%= @restroom.reviews.comments %></p>
+
+
+<p>
+  <%= link_to 'Back to Home', root_path =>
+</p>

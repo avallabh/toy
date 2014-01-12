@@ -41,6 +41,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'email_spec'
+  gem "rails-erd"
 end
 
 gem 'quiet_assets'

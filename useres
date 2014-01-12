@@ -1,0 +1,359 @@
+\d
+SELECT count(*) FROM movies;
+\q
+SELECT count(*) FROM movies;
+\q
+\d
+\d actors
+\d actors
+SELECT * FROM genres;
+SELECT * FROM genres;
+\d genres
+\d actors
+SELECT * FROM actors;
+\d
+\q
+\d
+\d movies
+SELECT title, rating FROM movies WHERE rating > 90
+SELECT title, year FROM movies WHERE year = 1977;
+SELECT * FROM genres;
+SELECT * FROM movies;
+\d
+\d genres
+\d movies
+SELECT * FROM genres
+\d genres
+SELECT * FROM genres = 'Science Fiction & Fantasy'
+\d cast_members
+\d cast_members
+\d cast_members
+\d actors
+\d movies
+\d actors
+\d cast_members
+\d actors
+\d actors
+\d cast_members
+\d actors
+\d movies
+\d movies
+\d cast_members
+\d movies
+\d actors
+\d cast_members
+\d actor
+\d actors
+\d cast_members
+\d actors
+\d movies
+\d genres
+\d movies
+\d genres
+\d movies
+\d
+\d
+\d studios
+\d studios
+\d movies;
+SELECT movies.genre_id FROM movies
+;
+SELECT movies.genre_id FROM movies;
+\d
+\d movies
+SELECT movies, movies.genre_id, genres FROM movies;
+SELECT movies, movies.genre_id, genres FROM movies;
+\d studios
+\d movies
+\d studios
+\q
+CREATE TABLE songs(id INTEGER PRIMARY KEY, name TEXT, album TEXT, artist TEXT);
+\d
+\d songs
+\q
+\d
+\d songs
+\q
+SELECT * FROM town_health_records LIMIT 5;
+SELECT * FROM town_health_records LIMIT 5;
+SELECT * FROM town_health_records
+SELECT * FROM town_health_records LIMIT 5;
+SELECT * FROM town_health_records;
+SELECT * FROM town_health_records;
+DELETE * FROM town_health_records;
+DELETE FROM town_health_records;
+SELECT * FROM town_health_records;
+SELECT * FROM town_health_records ORDER BY age_65_p
+SELECT * FROM town_health_records ORDER BY age_65_plusLIMIT 3;
+SELECT * FROM town_health_records ORDER BY age_65_plus
+\q
+\d
+SELECT * FROM town_health_records ORDER BY age_65_plus
+\d
+SELECT * FROM town_health_records ORDER BY age_65_plus;
+SELECT * FROM town_health_records ORDER BY age_65_plus;
+SELECT * FROM town_health_records ORDER BY age_65_plus;
+SELECT * FROM town_health_records ORDER BY age_65_plus LIMIT 3;
+SELECT * FROM town_health_records ORDER BY age_65_plus LIMIT 3;
+SELECT * FROM town_health_records ORDER BY age_65_plus LIMIT 3 DESC;
+SELECT * FROM town_health_records ORDER BY age_65_plus DESC LIMIT 3;
+SELECT geography FROM town_health_records ORDER BY age_65_plus DESC LIMIT 3;
+SELECT geography FROM town_health_records ORDER BY age_0_19 DESC LIMIT 3;
+SELECT geography FROM town_health_records ORDER BY per_capita_income LIMIT 5;
+SELECT geography FROM town_health_records ORDER BY teen_births LIMIT 1;
+SELECT geography FROM town_health_records ORDER BY teen_births;
+\d
+\d town_health_records
+SELECT geography FROM town_health_records ORDER BY teen_births DESC;
+SELECT geography FROM town_health_records ORDER BY teen_births DESC LIMIT 1;
+SELECT geography FROM town_health_records ORDER BY teen_births AND teen_births IS NOT NULL DESC LIMIT 1;
+SELECT geography FROM town_health_records ORDER BY teen_births AND teen_births IS NOT NULL LIMIT 1;
+SELECT geography FROM town_health_records ORDER BY teen_births AND teen_births IS NOT NULL DESC LIMIT 1;
+SELECT geography FROM town_health_records ORDER BY teen_births WHERE teen_births IS NOT NULL DESC LIMIT 1;
+SELECT geography FROM town_health_records ORDER BY teen_births WHERE teen_births IS NOT NULL DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE teen_births IS NOT NULL ORDER BY teen_births DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE infant_mortality_rate IS NOT NULL ORDER BY infant_mortality_rate DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE infant_mortality_rate IS NOT NULL AND geography IS NOT boston ORDER BY infant_mortality_rate DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE infant_mortality_rate IS NOT NULL AND geography = 'boston' ORDER BY infant_mortality_rate DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE infant_mortality_rate IS NOT NULL AND geography != 'boston' ORDER BY infant_mortality_rate DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE infant_mortality_rate IS NOT NULL AND geography NOT LIKE'Boston' ORDER BY infant_mortality_rate DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE infant_mortality_rate IS NOT NULL AND geography NOT LIKE'Boston' ORDER BY infant_mortality_rate DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE infant_mortality_rate IS NOT NULL AND geography NOT LIKE 'Boston' ORDER BY infant_mortality_rate DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE infant_mortality_rate IS NOT NULL AND geography != 'Boston' ORDER BY infant_mortality_rate DESC L[D[D[D[D[DIMIT 1;
+SELECT geography, infant_mortality_rate FROM town_health_records WHERE infant_mortality_rate IS NOT NULL AND geography NOT LIKE 'Boston' ORDER BY infant_mortality_rate DESC LIMIT 5;
+\q
+\d
+\d town_health_records
+SELECT geography FROM town_health_records WHERE infant_mortality_rate IS NOT NULL AND geography != 'Boston' ORDER BY infant_mortality_rate DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE infant_deaths IS NOT NULL AND geography != 'Boston' ORDER BY infant_mortality_rate DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE infant_deaths IS NOT NULL AND geography != 'Boston' ORDER BY infant_mortality_rate DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE infant_mortality_rate IS NOT NULL AND geography != 'Boston' ORDER BY infant_mortality_rate DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE infant_deaths IS NOT NULL AND geography != 'Boston' ORDER BY infant_mortality_rate DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE teen_births IS NOT NULL ORDER BY teen_births DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE infant_deaths IS NOT NULL AND geography != 'Boston' ORDER BY infant_deaths DESC LIMIT 1;
+SELECT geography FROM town_health_records WHERE teen_births IS NOT NULL ORDER BY teen_births DESC LIMIT 1;
+TownHealthRecord.select('geography').order(teen_births: :desc).limit(1)
+\q
+SELECT geography FROM town_health_records WHERE teen_births IS NOT NULL ORDER BY teen_births DESC LIMIT 1;
+TownHealthRecord.where('geography' IS NOT NULL).order(teen_births: :asc).limit(1)
+\q
+\d
+\d sales
+\q
+\d
+\d customers
+\d sales
+quit
+exit
+\q
+\d
+\q
+\d
+\q
+\d
+\q
+\d
+\q
+]d
+]d
+\d
+DROP table;
+DROP *;
+DROP DATABASE korning_development;
+DROP DATABASE korning_development;
+DROP DATABASE korning_development;
+DROP TABLE customers;
+DROP TABLE employees;
+DROP TABLE frequencies;
+DROP TABLE products;
+DROP TABLE sales;
+DROP TABLE schema_migrations;
+]d
+\d
+\q
+\d
+\q
+\q
+DROP TABLE sales;
+exit
+quit
+\q
+\d
+DROP TABLE customers;
+DROP TABLE employees;
+DROP TABLE frequencies;
+DROP TABLE products;
+DROP TABLE schema_migrations;
+\d
+\q
+\d
+\q
+\d
+DROP TABLE customers;
+DROP TABLE employees;
+DROP TABLE frequencies;
+DROP TABLE products;
+DROP TABLE sales;
+DROP TABLE schema_migrations;
+\d
+exit
+\q
+Sale.all
+quit
+exit
+\q
+SELECT d.name, mf.*
+FROM sys.master_files AS mf
+JOIN sys.databases AS d on d.database_id = mf.database_id
+;
+show variables like '%dir'
+;
+\q
+Sale.all
+quit
+exit
+\q
+\d
+\d sales
+exit
+quit
+\q
+\d
+\d customers
+\d employees
+\d customers
+\q
+Customers.all
+UPDATE Customers SET website = 'http://motorola.com' WHERE customer_id = '2';
+Customers.all
+UPDATE Customers SET website = 'http://motorola.com' WHERE customer_id = '2';
+;
+exit
+quit
+\q
+UPDATE Customers SET website = 'http://motorola.com' WHERE customer_id = '2';
+UPDATE Customers SET website = 'http://motorola.com' WHERE id = '2';
+UPDATE Customers SET website = 'http://lg.com' WHERE id = '3';
+UPDATE Customers SET website = 'http://htc.com' WHERE id = '4';
+UPDATE Customers SET website = 'http://nokia.com' WHERE id = '5';
+UPDATE Customers SET website = 'http://samsung.com' WHERE id = '6';
+UPDATE Customers SET website = 'http://apple.com' WHERE id = '1';
+\q
+UPDATE Employees SET name = "Bob Lob" AND email = "bob.lob@korning.com" WHERE id='1';
+UPDATE Employees SET name = 'Bob Lob' AND email = 'bob.lob@korning.com' WHERE id='1';
+UPDATE Employees SET email = 'bob.lob@korning.com' WHERE id='1';
+UPDATE Employees SET name = 'Bob Lob' WHERE id='1';
+UPDATE Employees SET name = 'Clancy Wiggum' WHERE id='2';
+UPDATE Employees SET email = 'clancy.wiggum@korning.com' WHERE id='2';
+UPDATE Employees SET email = 'ricky.bobby@korning.com' WHERE id='3';
+UPDATE Employees SET email = 'willie.groundskeeper@korning.com' WHERE id='4';
+UPDATE Employees SET name = 'Ricky Bobby' WHERE id='3';
+UPDATE Employees SET name = 'Willie Groundskeeper' WHERE id='4';
+UPDATE Customers SET name = 'Motorola' WHERE id='2';
+UPDATE Customers SET name = 'LG' WHERE id='3';
+UPDATE Customers SET name = 'HTC' WHERE id='4';
+UPDATE Customers SET name = 'Nokia' WHERE id='5';
+UPDATE Customers SET name = 'Samsung' WHERE id='6';
+UPDATE Customers SET name = 'Apple' WHERE id='7';
+UPDATE Customers SET account_number = 'MT928534' WHERE id='2';
+UPDATE Customers SET account_number = 'MT928534' WHERE id='2';
+\d
+\d customers
+\d customers
+\q
+UPDATE Customers SET account_number = 'MT928534' WHERE id='2';
+UPDATE Customers SET account_number = 'LG858843' WHERE id='3';
+UPDATE Customers SET account_number = 'HT925639' WHERE id='4';
+UPDATE Customers SET account_number = 'NK881241' WHERE id='5';
+UPDATE Customers SET account_number = 'SG373953' WHERE id='6';
+UPDATE Customers SET account_number = 'AP512452' WHERE id='7';
+\q
+\d
+\d arts
+\q
+\d
+gs
+\q
+]d
+\d
+exit
+quit
+\q
+\d
+\q
+\d
+\d inventories
+\q
+\d
+\d menu_items
+SELECT * FROM menu_items;
+\d
+SELECT * FROM menu_items WHERE id=1;
+\d
+\d menu_items
+\q
+\d menu_items
+\d
+\d menu_items
+SELECT * FROM menu_items;
+SELECT * FROM menu_items WHERE category="Seafood";
+SELECT * FROM menu_items WHERE category='Seafood';
+SELECT * FROM menu_items WHERE id=12;
+SELECT * FROM menu_items WHERE category IS NOT NULL;
+SELECT * FROM menu_items WHERE category IS NOT NIL;
+SELECT * FROM menu_items WHERE category IS NOT NULL;
+SELECT * FROM menu_items WHERE category IS NOT NULL;
+\q
+\d
+\d users
+\q
+\d users
+\d
+\q
+\d
+\d properties
+\q
+\d
+\d properties
+\q
+SELECT * FROM restrooms;
+SELECT * FROM restrooms;
+SELECT * FROM restrooms;
+SELECT * FROM restrooms;
+SELECT * FROM restrooms;
+SELECT row_to_json(restrooms) FROM restrooms;
+SELECT row_to_json(restrooms) FROM restrooms;
+SELECT row_to_json(restrooms) FROM restrooms;
+SELECT row_to_json(restrooms) FROM restrooms;
+SELECT * FROM restrooms;
+SELECT * FROM restrooms;
+SELECT row_to_json(restrooms) FROM restrooms;
+SELECT * FROM restrooms;
+SELECT * FROM restrooms;
+SELECT row_to_json(restrooms) FROM restrooms;
+\q
+SELECT * FROM restrooms;
+DELETE FROM restrooms WHERE id=2;
+SELECT * FROM restrooms;
+DELETE FROM restrooms WHERE id=3;
+DELETE FROM restrooms WHERE id=4;
+DELETE FROM restrooms WHERE id=5;
+DELETE FROM restrooms WHERE id=6;
+DELETE FROM restrooms WHERE id=7;
+SELECT * FROM restrooms;
+DELETE FROM restrooms WHERE id=8;
+DELETE FROM restrooms WHERE id=9;
+DELETE FROM restrooms WHERE id=10;
+DELETE FROM restrooms WHERE id=12;
+DELETE FROM restrooms WHERE id=13;
+SELECT * FROM restrooms;
+SELECT * FROM restrooms;
+SELECT * FROM restrooms;
+\d
+SELECT * FROM reviews;
+SELECT * FROM reviews;
+SELECT * FROM reviews;
+SELECT * FROM reviews;
+\d
+\d restrooms
+\s useres

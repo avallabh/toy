@@ -1,4 +1,3 @@
-<head>Restroom</head>
 <!--
 // HEADER LINKS
 // Take comments out of ERB tags
@@ -9,10 +8,13 @@
 
 -->
 
-<p><strong>Address:</strong>
-<%#= @restroom.address %></p>
+<h3>Location: <%= @restroom.location_name %></h3>
 
-<p><strong>Accessible:</strong>
+<%= link_to 'Add Review', "/restrooms/#{@restroom.id}/reviews/new" %> <!-- new_restroom_review_path -->
+<p></p>
+
+
+<p><strong>Accessibility:</strong>
 <%#= @restroom.reviews.accessible %></p>
 
 <p><strong>Cleanliness:</strong>
