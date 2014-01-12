@@ -43,13 +43,19 @@ function initialize() {
     for (var i = 0; i < data.length; i++) {
       var position = new google.maps.LatLng(data[i].latitude, data[i].longitude);
       var location = data[i].location_name;
-      var marker = new google.maps.Marker({ position: position, map: map });
 
-      var infoWindow = new google.maps.InfoWindow();
+      // title: location is optional in marker; works same as hover text for links
+      var marker = new google.maps.Marker({ position: position, map: map, title: location });
 
-
-      //var infowindow = new google.maps.InfoWindow(map, position, contentString);
+      // adds info window to each marker -- BROKEN
+      var infowindow = new google.maps.InfoWindow({
+        content: location
+      });
     }
+  });
+  // actually loads infowindow onClick -- BROKEN
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
   });
 
 }
