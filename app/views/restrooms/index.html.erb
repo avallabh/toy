@@ -27,45 +27,38 @@
 
 </head>
 <body>
-  <nav class="top-bar" data-topbar>
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="#">Gotta Go!</a></h1>
-      </li>
-    </ul>
 
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">Gotta Go!</a></h1>
+    </li>
+  </ul>
 
-      <% if user_signed_in? %>
+  <section class="top-bar-section">
+  <!-- Right Nav Section -->
+    <% if user_signed_in? %>
       <div class="button-bar">
         <ul class="button-group right">
-          <li><h3><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></h1></li>
-          <!--<li><a href="/users/sign_out" class="button">Sign Out</a></li>-->
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         </ul>
       </div>
-      <% else %>
-
+    <% else %>
       <div class="button-bar">
         <ul class="button-group right">
-        <!--
-          <li><h1><%= link_to 'Sign Up', new_user_registration_path %></h1></li>
-          <li><h1><%= link_to 'Sign In', new_user_session_path %></h1></li>
-        -->
-
-        <li><a href="<%= new_user_registration_path %>" class="button">Sign Up</a></li>
-        <li><a href="<%= new_user_session_path %>" class="button">Sign In</a></li>
-
-      </ul>
-    </div>
-
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <!--
+          <li><a href="<%#= new_user_session_path %>" class="button">Sign In</a></li>
+          <li><a href="<%#= new_user_registration_path %>" class="button">Sign Up</a></li>
+          -->
+        </ul>
+      </div>
     <% end %>
-  </ul>
-</div>
-<!-- Left Nav Section -->
-
-</section>
+  <!-- Left Nav Section -->
+  </section>
 </nav>
+
 
 <div class="row">
   <!-- left side -->
@@ -90,7 +83,7 @@
   </div>
   <!-- right side -->
   <div class="large-6 columns">
-        <p>&nbsp;</p>
+    <p>&nbsp;</p>
     <div id="map-canvas"></div>
   </div>
 </div>

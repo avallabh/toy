@@ -1,15 +1,9 @@
-// Note: This requires that you consent to location sharing when
-// prompted by your browser. If you see a blank space instead of the map, this
-// is probably because you have denied permission for location sharing.
-
-// 42.3516303  - LAT
-// -71.0614178 - LONG
 var map;
 var marker;
 
 function initialize() {
   var mapOptions = {
-    zoom: 19
+    zoom: 11 // 11 home, 19 LA
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
@@ -39,21 +33,25 @@ function initialize() {
   google.maps.event.addListener(map, 'click', function(event) {
     latitude = event.latLng.lat();
     longitude = event.latLng.lng();
-    console.log( latitude + ', ' + longitude ); // outputs lat/long to console for testing
+    //console.log( latitude + ', ' + longitude ); // outputs lat/long to console for testing
     $('#restroom_latitude').val(latitude);
     $('#restroom_longitude').val(longitude);
     placeMarker(event.latLng);
   });
-
+  // loads markers from database based on lat/long
   $.get('/restrooms.json', function(data) {
     for (var i = 0; i < data.length; i++) {
-      var position =
-        new google.maps.LatLng(data[i].latitude, data[i].longitude);
+      var position = new google.maps.LatLng(data[i].latitude, data[i].longitude);
+      var location = data[i].location_name;
+      var marker = new google.maps.Marker({ position: position, map: map });
 
-      var marker =
-        new google.maps.Marker({ position: position, map: map });
+      var infoWindow = new google.maps.InfoWindow();
+
+
+      //var infowindow = new google.maps.InfoWindow(map, position, contentString);
     }
-  })
+  });
+
 }
 
 function handleNoGeolocation(errorFlag) {
@@ -82,10 +80,6 @@ function placeMarker(location) {
       map: map
     });
   }
-  // var marker; = new google.maps.Marker({
-  //   position: location,
-  //   map: map
-  // });
 }
 
 // loads map with geolocation
