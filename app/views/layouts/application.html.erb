@@ -12,7 +12,39 @@
   </head>
 
   <body>
-
+    <!-- TOP NAV BAR -->
+    <div class="fixed">
+    <nav class="top-bar" data-topbar data-options="is_hover: false">
+      <ul class="title-area">
+        <li class="name">
+          <h1><%= link_to 'Gotta Go!', root_path %></h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+      <!-- Right Nav Section -->
+        <% if user_signed_in? %>
+          <div class="button-bar">
+            <ul class="button-group right">
+              <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </div>
+        <% else %>
+          <div class="button-bar">
+            <ul class="button-group right">
+              <li><%= link_to 'Sign In', new_user_session_path %></li>
+              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+              <!--
+              <li><a href="<%#= new_user_session_path %>" class="button">Sign In</a></li>
+              <li><a href="<%#= new_user_registration_path %>" class="button">Sign Up</a></li>
+              -->
+            </ul>
+          </div>
+        <% end %>
+      <!-- Left Nav Section -->
+      </section>
+    </nav>
+    </div>
+    <!-- TOP NAV BAR -->
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>

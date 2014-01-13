@@ -1,5 +1,4 @@
 <h3>Add Review</h3>
-<%= notice %>
 
 <div class="large-4 columns">
 
@@ -10,9 +9,9 @@
 <%= f.input :accessibility, :collection => ['Unknown', 'Public', 'Purchase Required', 'Private'] %>
 <%= f.input :gender, :collection => ['Unisex', 'Male', 'Female'] %>
 <%= f.input :comments, as: :text %>
-
-<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :user_id, value: current_user.id, readonly: true %>
 <%= f.button :submit, 'Add Review', class: 'button' %>
 <% end %>
 <br/>
+
 </div>

@@ -28,54 +28,23 @@
 </head>
 <body>
 
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="#">Gotta Go!</a></h1>
-    </li>
-  </ul>
-
-  <section class="top-bar-section">
-  <!-- Right Nav Section -->
-    <% if user_signed_in? %>
-      <div class="button-bar">
-        <ul class="button-group right">
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        </ul>
-      </div>
-    <% else %>
-      <div class="button-bar">
-        <ul class="button-group right">
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <!--
-          <li><a href="<%#= new_user_session_path %>" class="button">Sign In</a></li>
-          <li><a href="<%#= new_user_registration_path %>" class="button">Sign Up</a></li>
-          -->
-        </ul>
-      </div>
-    <% end %>
-  <!-- Left Nav Section -->
-  </section>
-</nav>
-
-
 <div class="row">
   <!-- left side -->
   <div class="large-6 columns">
     <p>&nbsp;</p>
     <h3 class="header">Click a marker to view information and reviews.</h3>
     <br/>
-    <h3 class="header">Need to add a restroom?</h3><h6 class="subheader">Must be signed in</h4>
-
+    <h3 class="header">Need to add a restroom?</h3>
+    <% if !user_signed_in? %>
+      <h6 class="subheader">Must be signed in</h6>
+    <% end %>
     1) Click on the map to add a marker.<br/>
     2) Enter a location name.<br/>
     3) Add Restroom!<br/>
     <p>&nbsp;</p>
-    <%= simple_form_for(@restroom) do |f| %> <!-- (@restroom, url: PATH_TO_NEW) -->
+    <%= simple_form_for(@restroom) do |f| %>
     <%= f.input :location_name, label: 'Location Name' %>
     <%= f.hidden_field :latitude, readonly: true %>
-    <!-- , label: 'Latitude', placeholder: 'Latitude (read-only)' , readonly: true -->
     <%= f.hidden_field :longitude, readonly: true%>
     <%= f.button :submit, 'Add Restroom', class: 'button' %>
     <% end %>
