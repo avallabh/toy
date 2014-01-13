@@ -1,43 +1,48 @@
-<!--
-// HEADER LINKS
-// Take comments out of ERB tags
+<div class="row">
+  <div class="large-6 columns"><h2>Location: <%= @restroom.location_name %></h2>
+    <h4 class="subheader"><%= link_to 'Add Review', "/restrooms/#{@restroom.id}/reviews/new" %></h4>
+  </div>
+    <!--
+    <a href="<%#= "/restrooms/#{@restroom.id}/reviews/new" %>">Add Review</a>
+    -->
+    <%#= link_to 'Add Review', "/restrooms/#{@restroom.id}/reviews/new" %>
+</div>
 
-<p>
-  <#%= link_to 'Add Review', PATH_GOES_HERE =>
-</p>
+ <!-- new_restroom_review_path -->
 
--->
-
-<h3>Location: <%= @restroom.location_name %></h3>
-
-<%= link_to 'Add Review', "/restrooms/#{@restroom.id}/reviews/new" %> <!-- new_restroom_review_path -->
+<% @restroom.reviews.each do |review| %>
+<div class="row">
+  <div class="large-12 columns"><strong>Review <%= review.id %> -
+  <%= review.user.first_name %> <%= review.user.last_name %>
+  (<%= review.created_at.strftime("%B %d, %Y at %I:%M%P") %>)</strong>
+</div>
+</div>
+<div class="row">
+  <div class="large-2 columns"><strong>Cleanliness:</strong></div>
+  <div class="large-10 columns"><%= review.cleanliness %></div>
+</div>
+<div class="row">
+  <div class="large-2 columns"><strong>Privacy:</strong></div>
+  <div class="large-10 columns"><%= review.privacy %></div>
+</div>
+<div class="row">
+  <div class="large-2 columns"><strong>Smell:</strong></div>
+  <div class="large-10 columns"><%= review.smell %></div>
+</div>
+<div class="row">
+  <div class="large-2 columns"><strong>Accessibility:</strong></div>
+  <div class="large-10 columns"><%= review.accessibility %></div>
+</div>
+<div class="row">
+  <div class="large-2 columns"><strong>Gender:</strong></div>
+  <div class="large-10 columns"><%= review.gender %></div>
+</div>
+<div class="row">
+  <div class="large-2 columns"><strong>Comments:</strong></div>
+  <div class="large-10 columns"><%= review.comments %></div>
+</div>
 <p></p>
+<% end %>
 
-
-<p><strong>Accessibility:</strong>
-<%#= @restroom.reviews.accessible %></p>
-
-<p><strong>Cleanliness:</strong>
-<%#= @restroom.reviews.cleanliness %></p>
-
-<p><strong>Privacy:</strong>
-<%#= @restroom.reviews.privacy %></p>
-
-<p><strong>Smell:</strong>
-<%#= @restroom.reviews.smell %></p>
-
-<p><strong>Gender:</strong>
-<%#= @restroom.reviews.gender %></p>
-
-<p><strong>Comments:</strong>
-<%#= @restroom.reviews.comments %></p>
-
-<!--
-// FOOTER LINKS
-// Take comments out of ERB tags
-
-<p>
-  <#%= link_to 'Back to Home', root_path =>
-</p>
-
--->
+<div class="row">
+  <div class="large-2 columns"><%= link_to 'Back to Home', root_path %></div>
