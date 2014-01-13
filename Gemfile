@@ -47,9 +47,11 @@ end
 gem 'quiet_assets'
 gem 'devise'
 gem 'simple_form'
-gem 'geocoder'
-gem 'gmaps4rails'
 gem 'foundation-rails'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
