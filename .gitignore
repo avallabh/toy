@@ -16,3 +16,4 @@
 /tmp
 
 .notes/
+config/database.yml
