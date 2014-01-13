@@ -3,7 +3,7 @@ var marker;
 
 function initialize() {
   var mapOptions = {
-    zoom: 11 // 11 home, 19 LA
+    zoom: 19 // 11 home, 19 LA
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
