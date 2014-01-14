@@ -5,5 +5,7 @@ Toy::Application.routes.draw do
     resources :reviews
   end
 
+  resources :user_feedback, path: 'feedback', as: 'user_feedbacks'
+
   root to: 'restrooms#index'
 end

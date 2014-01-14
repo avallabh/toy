@@ -4,18 +4,18 @@
   </div>
     <!--
     <a href="<%#= "/restrooms/#{@restroom.id}/reviews/new" %>">Add Review</a>
-    -->
-    <%#= link_to 'Add Review', "/restrooms/#{@restroom.id}/reviews/new" %>
+  -->
+  <%#= link_to 'Add Review', "/restrooms/#{@restroom.id}/reviews/new" %>
 </div>
 
- <!-- new_restroom_review_path -->
+<!-- new_restroom_review_path -->
 
 <% @restroom.reviews.each do |review| %>
 <div class="row">
   <div class="large-12 columns"><strong>Review <%= review.id %> -
-  <%= review.user.first_name %> <%= review.user.last_name %>
-  (<%= review.created_at.strftime("%B %d, %Y at %I:%M%P") %>)</strong>
-</div>
+    <%= review.user.first_name %> <%= review.user.last_name %>
+    (<%= review.created_at.strftime("%B %d, %Y at %I:%M%P") %>)</strong>
+  </div>
 </div>
 <div class="row">
   <div class="large-2 columns">Cleanliness:</div>
@@ -45,6 +45,11 @@
 <% end %>
 
 <div class="row">
-  <div class="large-2 columns"><%= link_to 'Back to Home', root_path %></div>
+  <div class="large-6 columns"><%= link_to 'Back to Home', root_path %></div>
 </div>
+<br/>
+<div class="row">
+  <div class="large-6 columns"><%= link_to 'Feedback? Contact Me', user_feedbacks_path %></div>
+</div>
+
 <p></p>

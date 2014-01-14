@@ -12,6 +12,6 @@
 <%= f.hidden_field :user_id, value: current_user.id, readonly: true %>
 <%= f.button :submit, 'Add Review', class: 'button' %>
 <% end %>
-<br/>
 
+<%= link_to 'Feedback? Contact Me', user_feedbacks_path %>
 </div>
