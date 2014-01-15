@@ -7,13 +7,14 @@ class UserFeedbackController < ApplicationController
     @user_feedback = UserFeedback.new(params[:user_feedback])
     @user_feedback.request = request
     if @user_feedback.deliver
-      flash.now[:notice] = 'Thanks for your message!'
-      redirect_to root_path, notice: 'Email sent - Thanks!'
+      flash[:success] = 'Email sent!'
+      redirect_to root_path
     else
-      render :new
+      flash[:alert] = 'Error'
+      render 'index'
     end
     # rescue ScriptError
-      # flash[:error] = 'Sorry, this message appears to be spam and was not delivered.'
+    #   flash[:error] = 'Sorry, this message appears to be spam and was not delivered.'
   end
 end
 

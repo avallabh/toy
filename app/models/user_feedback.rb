@@ -7,7 +7,7 @@ class UserFeedback < MailForm::Base
 
   def headers
     {
-      subject: "[Gotta Go] - #{subject}",
+      subject: "[Gotta Go] #{subject}",
       to: "ajay.vallabh@gmail.com",
       from: "#{first_name} #{last_name} - #{email}"
     }

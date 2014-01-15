@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <!-- TOP NAV BAR -->
+    <!-- BEGIN TOP NAV BAR -->
     <nav class="top-bar" data-topbar>
       <ul class="title-area">
         <li class="name">
@@ -42,7 +42,10 @@
       <!-- Left Nav Section -->
       </section>
     </nav>
-    <!-- TOP NAV BAR -->
+    <!-- END TOP NAV BAR -->
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: "#{name} alert-box" %>
+    <% end -%>
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>

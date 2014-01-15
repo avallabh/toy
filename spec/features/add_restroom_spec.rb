@@ -19,6 +19,7 @@ feature 'add a restroom', %Q{
     fill_in "Location Name", with: "Dunkin Donuts"
     click_on "Add Restroom"
     "#{uri.path}".should == root_path
+    expect(page).to_not have_content('Place a valid marker')
   end
 
 end

@@ -20,8 +20,10 @@ class ReviewsController < ApplicationController
     @restroom = Restroom.find(params[:restroom_id])
     @review = @restroom.reviews.build(review_params)
     if @review.save
-      redirect_to root_path, notice: 'Review added!'
+      flash[:success] = 'Review added!'
+      redirect_to "/restrooms/#{@restroom.id}"
     else
+      flash[:alert] = 'Enter a valid review'
       render 'new'
     end
   end

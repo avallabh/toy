@@ -4,27 +4,8 @@
   <title>Gotta Go!</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
-  <style>
-  /*html, body {
-    height: 100%;
-    margin: 0px;
-    padding: 0px
-    }*/
-    #map-canvas {
-      height: 400px;
-      width: 400px;
-      margin: 0px;
-      padding: 0px
-    }
-    </style>
-    <!--
-    Include the maps javascript with sensor=true because this code is using a
-    sensor (a GPS locator) to determine the user's location.
-    See: https://developers.google.com/maps/documentation/javascript/tutorial#Loading_the_Maps_API
-  -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBY3appHAkQeRQJVGwOi1p80XybQQc-BC0&sensor=true"></script>
   <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script> -->
-
 </head>
 <body>
 
@@ -48,7 +29,6 @@
     <%= f.hidden_field :longitude, readonly: true%>
     <%= f.button :submit, 'Add Restroom', class: 'button' %>
     <% end %>
-    <%= notice %>
   </div>
   <!-- right side -->
   <div class="large-6 columns">

@@ -14,9 +14,11 @@ class RestroomsController < ApplicationController
   def create
     @restroom = Restroom.new(restroom_params)
     if @restroom.save
-      redirect_to root_path, notice: 'Restroom added!'
+      flash[:success] = 'Restroom added!'
+      redirect_to root_path
     else
-      render 'new'
+      flash[:alert] = 'Place a valid marker'
+      redirect_to root_path
     end
   end
 

@@ -13,47 +13,70 @@
 view-source:http://www.starboundplanets.com/
 Table with striped (alternating) background colors for easier reading
 -->
-
-<% @restroom.reviews.each do |review| %>
 <div class="row">
-  <div class="large-12 columns"><strong>Review <%= review.id %> -
-    <%= review.user.first_name %> <%= review.user.last_name %>
-    (<%= review.created_at.strftime("%B %d, %Y at %I:%M%P") %>)</strong>
+  <div class="large-12 columns">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Posted By: </th>
+          <th>Date</th>
+          <th>Cleanliness</th>
+          <th>Privacy</th>
+          <th>Smell</th>
+          <th>Accessibility</th>
+          <th>Gender</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% @restroom.reviews.reverse.each do |x| %>
+        <%# cat1 = ['cleanliness', 'privacy', 'smell'] %>
+        <%# cat2 = ['accessibility', 'gender'] %>
+          <tr>
+            <td><%= x.user.first_name %> <%= x.user.last_name %></td>
+            <td><%= x.created_at.strftime("%b %d, %Y") %></td>
+            <td>
+              <% if x.cleanliness.nil? %>
+                <%= "N/A" %>
+              <% else %>
+                <%= x.cleanliness %>
+              <% end %>
+            </td>
+            <td>
+              <% if x.privacy.nil? %>
+                <%= "N/A" %>
+              <% else %>
+                <%= x.privacy %>
+              <% end %>
+            </td>
+            <td>
+              <% if x.smell.nil? %>
+                <%= "N/A" %>
+              <% else %>
+                <%= x.smell %>
+              <% end %>
+            </td>
+            <td>
+              <% if x.accessibility.blank? %>
+                <%= "N/A" %>
+              <% else %>
+                <%= x.accessibility %>
+              <% end %>
+            </td>
+            <td>
+              <% if x.gender.blank? %>
+                <%= "N/A" %>
+              <% else %>
+                <%= x.gender %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="7"><strong>Comments:</strong> <%= x.comments %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
-<div class="row">
-  <div class="large-2 columns">Cleanliness:</div>
-  <div class="large-10 columns"><%= review.cleanliness %></div>
-</div>
-<div class="row">
-  <div class="large-2 columns">Privacy:</div>
-  <div class="large-10 columns"><%= review.privacy %></div>
-</div>
-<div class="row">
-  <div class="large-2 columns">Smell:</div>
-  <div class="large-10 columns"><%= review.smell %></div>
-</div>
-<div class="row">
-  <div class="large-2 columns">Accessibility:</div>
-  <div class="large-10 columns"><%= review.accessibility %></div>
-</div>
-<div class="row">
-  <div class="large-2 columns">Gender:</div>
-  <div class="large-10 columns"><%= review.gender %></div>
-</div>
-<div class="row">
-  <div class="large-2 columns">Comments:</div>
-  <div class="large-10 columns"><%= review.comments %></div>
-</div>
-<p></p>
-<% end %>
-
-<div class="row">
-  <div class="large-6 columns"><%= link_to 'Back to Home', root_path %></div>
-</div>
-<br/>
-<div class="row">
-  <div class="large-6 columns"><%= link_to 'Feedback? Contact Me', user_feedbacks_path %></div>
-</div>
-
 <p></p>
