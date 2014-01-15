@@ -25,13 +25,13 @@ Table with striped (alternating) background colors for easier reading
           <th>Smell</th>
           <th>Accessibility</th>
           <th>Gender</th>
-
+          <th>Baby Station</th>
         </tr>
       </thead>
       <tbody>
         <% @restroom.reviews.reverse.each do |x| %>
         <%# cat1 = ['cleanliness', 'privacy', 'smell'] %>
-        <%# cat2 = ['accessibility', 'gender'] %>
+        <%# cat2 = ['accessibility', 'gender', 'baby_station'] %>
           <tr>
             <td><%= x.user.first_name %> <%= x.user.last_name %></td>
             <td><%= x.created_at.strftime("%b %d, %Y") %></td>
@@ -70,9 +70,16 @@ Table with striped (alternating) background colors for easier reading
                 <%= x.gender %>
               <% end %>
             </td>
+            <td>
+              <% if x.baby_station.blank? %>
+                <%= "N/A" %>
+              <% else %>
+                <%= x.baby_station %>
+              <% end %>
+            </td>
           </tr>
           <tr>
-            <td colspan="7"><strong>Comments:</strong> <%= x.comments %></td>
+            <td colspan="8"><strong>Comments:</strong> <%= x.comments %></td>
           </tr>
         <% end %>
       </tbody>

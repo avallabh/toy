@@ -6,8 +6,9 @@
 <%= f.input :cleanliness, :collection => 1..5 %>
 <%= f.input :privacy, :collection => 1..5 %>
 <%= f.input :smell, :collection => 1..5 %>
-<%= f.input :accessibility, :collection => ['Unknown', 'Public', 'Purchase Required', 'Private'] %>
-<%= f.input :gender, :collection => ['Unisex', 'Male', 'Female', 'Both'] %>
+<%= f.input :accessibility, :collection => ['Unknown', 'Public', 'Purchase Required', 'Private'], selected: 'Unknown' %>
+<%= f.input :gender, :collection => ['Unisex', 'Male', 'Female', 'Both'], selected: 'Both' %>
+<%= f.input :baby_station, :collection => ['Unknown', 'Yes', 'No'], selected: 'Unknown'  %>
 <%= f.input :comments, as: :text %>
 <%= f.hidden_field :user_id, value: current_user.id, readonly: true %>
 <%= f.button :submit, 'Add Review', class: 'button' %>
