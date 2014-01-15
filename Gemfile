@@ -42,7 +42,6 @@ group :development, :test do
   gem 'launchy'
   gem 'email_spec'
   gem 'rails-erd'
-  gem 'mail_form'
 end
 
 # group :development do
@@ -53,6 +52,7 @@ gem 'quiet_assets'
 gem 'devise'
 gem 'simple_form'
 gem 'foundation-rails'
+gem 'mail_form'
 
 group :production do
   gem 'rails_12factor'
