@@ -45,6 +45,10 @@ group :development, :test do
   gem 'mail_form'
 end
 
+# group :development do
+#   gem 'mailcatcher'
+# end
+
 gem 'quiet_assets'
 gem 'devise'
 gem 'simple_form'

@@ -8,7 +8,11 @@
   <%#= link_to 'Add Review', "/restrooms/#{@restroom.id}/reviews/new" %>
 </div>
 
-<!-- new_restroom_review_path -->
+
+<!--
+view-source:http://www.starboundplanets.com/
+Table with striped (alternating) background colors for easier reading
+-->
 
 <% @restroom.reviews.each do |review| %>
 <div class="row">

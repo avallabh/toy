@@ -22,9 +22,10 @@ feature 'contact email form', %Q{
     visit '/feedback'
     fill_in "First Name", with: "John"
     fill_in "Last Name", with: "Smith"
-    fill_in "Email", with: "johnsmith@gmail.com"
+    fill_in "Your Email", with: "johnsmith@gmail.com"
     fill_in "Subject", with: "JavaScript is broken"
     fill_in "Body", with: "The info windows for your markers do not display."
+    click_button "Send Message"
 
     expect(ActionMailer::Base.deliveries.size).to eql(1)
     last_email = ActionMailer::Base.deliveries.last

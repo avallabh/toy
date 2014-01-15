@@ -5,10 +5,10 @@
 <%= simple_form_for @user_feedback do |f| %>
 <%= f.input :first_name, label: 'First Name', required: true %>
 <%= f.input :last_name, label: 'Last Name', required: true %>
-<%= f.input :email, required: true %>
+<%= f.input :email, label: 'Your Email', required: true %>
 <%= f.input :subject, required: true %>
 <%= f.input :body, as: :text, required: true %>
-<%= f.button :submit, 'Send message', class: 'button' %>
+<%= f.button :submit, 'Send Message', class: 'button' %>
 <% end %>
 
 <%= link_to 'Back to Home', root_path %>
