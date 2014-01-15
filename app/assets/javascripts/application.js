@@ -16,5 +16,6 @@
 //= require turbolinks
 //= require google_maps
 //= require_tree .
+//= require modernizr
 
 $(function(){ $(document).foundation(); });
