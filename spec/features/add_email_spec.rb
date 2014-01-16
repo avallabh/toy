@@ -34,4 +34,16 @@ feature 'contact email form', %Q{
     expect(last_email).to have_body_text(/The info windows for your markers do not display./)
   end
 
+  scenario "user doesn't fill all fields in" do
+    ActionMailer::Base.deliveries = []
+
+    visit '/feedback'
+    fill_in "Email", with: "johnsmith@gmail.com"
+    fill_in "Subject", with: "Who Am I?"
+    fill_in "Body", with: "You'll never find out!"
+    click_button "Send Message"
+
+    expect(ActionMailer::Base.deliveries.size).to eql(0)
+  end
+
 end

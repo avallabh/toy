@@ -2,17 +2,8 @@
   <div class="large-6 columns"><h2>Location: <%= @restroom.location_name %></h2>
     <h4 class="subheader"><%= link_to 'Add Review', "/restrooms/#{@restroom.id}/reviews/new" %></h4>
   </div>
-    <!--
-    <a href="<%#= "/restrooms/#{@restroom.id}/reviews/new" %>">Add Review</a>
-  -->
-  <%#= link_to 'Add Review', "/restrooms/#{@restroom.id}/reviews/new" %>
 </div>
 
-
-<!--
-view-source:http://www.starboundplanets.com/
-Table with striped (alternating) background colors for easier reading
--->
 <div class="row">
   <div class="large-12 columns">
     <table class="table table-striped">
@@ -30,8 +21,6 @@ Table with striped (alternating) background colors for easier reading
       </thead>
       <tbody>
         <% @restroom.reviews.reverse.each do |x| %>
-        <%# cat1 = ['cleanliness', 'privacy', 'smell'] %>
-        <%# cat2 = ['accessibility', 'gender', 'baby_station'] %>
           <tr>
             <td><%= x.user.first_name %> <%= x.user.last_name %></td>
             <td><%= x.created_at.strftime("%b %d, %Y") %></td>
