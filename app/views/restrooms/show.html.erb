@@ -18,7 +18,7 @@ Table with striped (alternating) background colors for easier reading
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Posted By: </th>
+          <th>Posted By</th>
           <th>Date</th>
           <th>Cleanliness</th>
           <th>Privacy</th>
@@ -56,27 +56,9 @@ Table with striped (alternating) background colors for easier reading
                 <%= x.smell %>
               <% end %>
             </td>
-            <td>
-              <% if x.accessibility.blank? %>
-                <%= "N/A" %>
-              <% else %>
-                <%= x.accessibility %>
-              <% end %>
-            </td>
-            <td>
-              <% if x.gender.blank? %>
-                <%= "N/A" %>
-              <% else %>
-                <%= x.gender %>
-              <% end %>
-            </td>
-            <td>
-              <% if x.baby_station.blank? %>
-                <%= "N/A" %>
-              <% else %>
-                <%= x.baby_station %>
-              <% end %>
-            </td>
+            <td><%= x.accessibility %></td>
+            <td><%= x.gender %></td>
+            <td><%= x.baby_station %></td>
           </tr>
           <tr>
             <td colspan="8"><strong>Comments:</strong> <%= x.comments %></td>
