@@ -18,3 +18,5 @@
 .notes/
 config/database.yml
 .env
+.ruby_version
+.ruby_gemset
