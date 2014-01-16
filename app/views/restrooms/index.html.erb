@@ -24,7 +24,7 @@
     3) Add Restroom!<br/>
     <p>&nbsp;</p>
     <%= simple_form_for(@restroom) do |f| %>
-    <%= f.input :location_name, label: 'Location Name' %>
+    <%= f.input :location_name, label: 'Location Name (50 character limit)', input_html: { maxlength: 50 } %>
     <%= f.hidden_field :latitude, readonly: true %>
     <%= f.hidden_field :longitude, readonly: true%>
     <%= f.button :submit, 'Add Restroom', class: 'button' %>

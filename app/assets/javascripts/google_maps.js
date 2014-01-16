@@ -1,4 +1,4 @@
-var map, marker, infowindow;
+var map, marker;
 
 function initialize() {
   var mapOptions = {
@@ -52,53 +52,26 @@ function initialize() {
     $('#restroom_longitude').val(longitude);
     placeMarker(event.latLng);
   });
-  // loads markers from database based on lat/long
+
+  var infowindow = new google.maps.InfoWindow();
   $.get('/restrooms.json', function(data) {
     for (var i = 0; i < data.length; i++) {
       var position = new google.maps.LatLng(data[i].latitude, data[i].longitude);
-      var rest_id = data[i].id
-      //var location_name = data[i].location_name;
+      var rest_id = data[i].id;
+      addMarkerWithWindow(i);
+    }
+    function addMarkerWithWindow(i) {
+      var marker = new google.maps.Marker({
+        position: position, map: map, clickable: true
+      });
       var location_name = '<a href="/restrooms/'+ rest_id +'">' + data[i].location_name + '</a>';
-
-      // title: location is optional in marker; works same as hover text for links
-      var marker = new google.maps.Marker({ position: position, map: map, clickable: true });
-
-      // loads infowindow for last marker in database -- NEEDS WORK
       google.maps.event.addListener(marker, 'click', function(event) {
         infowindow.setContent(location_name);
         infowindow.open(map,marker);
       });
-
-      // adds info window to each marker -- BROKEN
-      // infowindow = new google.maps.InfoWindow({
-      //     addMarker(i);
-      // });
-    };
+    }
   });
-
 } // end initialize
-
-/*
-infowindow = new google.maps.InfoWindow({ });
-  for (i = 0; i < myLats.length; i++) {
-    addMarker(i);
-  }
-}
-
-function addMarker(i) {
-  var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(myLats[i],myLngs[i]),
-    map: map,
-      clickable: true
-      //icon: '". url::base() ."resources/icons/accident.png'
-    });
-
-  google.maps.event.addListener(marker, 'click', function(event) {
-    infowindow.setContent(myLocs[i]);
-    infowindow.open(map,marker);
-  });
-}
-*/
 
 function handleNoGeolocation(errorFlag) {
   if (errorFlag) {
@@ -117,7 +90,7 @@ function handleNoGeolocation(errorFlag) {
   map.setCenter(options.position);
 }
 
-// place markers on map
+// place new marker on map onClick, only allows 1 at a time
 function placeMarker(location) {
   if (marker) { marker.setPosition(location);
   } else {
