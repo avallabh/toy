@@ -31,7 +31,7 @@ function initialize() {
       infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
-        content: 'Current location.'
+        content: 'Current location'
       });
 
       map.setCenter(pos);
@@ -53,7 +53,7 @@ function initialize() {
     placeMarker(event.latLng);
   });
 
-  var infowindow = new google.maps.InfoWindow();
+  var infowindow = new google.maps.InfoWindow( { maxWidth: 75 });
   $.get('/restrooms.json', function(data) {
     for (var i = 0; i < data.length; i++) {
       var position = new google.maps.LatLng(data[i].latitude, data[i].longitude);
