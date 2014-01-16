@@ -3,7 +3,22 @@ var marker;
 
 function initialize() {
   var mapOptions = {
-    zoom: 19 // 11 home, 19 LA
+    zoom: 19, // 11 home, 19 LA
+    zoomControl: true,
+    zoomControlOptions: {
+        style: google.maps.ZoomControlStyle.DEFAULT,
+        position: google.maps.ControlPosition.LEFT_CENTER
+    },
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+        position: google.maps.ControlPosition.BOTTOM_CENTER
+    },
+    panControl: true,
+    panControlOptions: {
+        position: google.maps.ControlPosition.TOP_RIGHT
+    },
+
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
