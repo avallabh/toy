@@ -1,22 +1,21 @@
-var map;
-var marker;
+var map, marker, infowindow;
 
 function initialize() {
   var mapOptions = {
     zoom: 19, // 11 home, 19 LA
     zoomControl: true,
     zoomControlOptions: {
-        style: google.maps.ZoomControlStyle.DEFAULT,
-        position: google.maps.ControlPosition.LEFT_CENTER
+      style: google.maps.ZoomControlStyle.DEFAULT,
+      position: google.maps.ControlPosition.LEFT_CENTER
     },
-    mapTypeControl: true,
-    mapTypeControlOptions: {
-        style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-        position: google.maps.ControlPosition.BOTTOM_CENTER
-    },
+    mapTypeControl: false, // set true for map/satellite option
+    // mapTypeControlOptions: {
+    //   style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+    //   position: google.maps.ControlPosition.BOTTOM_CENTER
+    // },
     panControl: true,
     panControlOptions: {
-        position: google.maps.ControlPosition.TOP_RIGHT
+      position: google.maps.ControlPosition.TOP_RIGHT
     },
 
   };
@@ -29,7 +28,7 @@ function initialize() {
       var pos = new google.maps.LatLng(position.coords.latitude,
        position.coords.longitude);
 
-      var infowindow = new google.maps.InfoWindow({
+      infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
         content: 'Current location.'
@@ -57,23 +56,49 @@ function initialize() {
   $.get('/restrooms.json', function(data) {
     for (var i = 0; i < data.length; i++) {
       var position = new google.maps.LatLng(data[i].latitude, data[i].longitude);
-      var location = data[i].location_name;
+      var rest_id = data[i].id
+      //var location_name = data[i].location_name;
+      var location_name = '<a href="/restrooms/'+ rest_id +'">' + data[i].location_name + '</a>';
 
       // title: location is optional in marker; works same as hover text for links
-      var marker = new google.maps.Marker({ position: position, map: map, title: location });
+      var marker = new google.maps.Marker({ position: position, map: map, clickable: true });
+
+      // loads infowindow for last marker in database -- NEEDS WORK
+      google.maps.event.addListener(marker, 'click', function(event) {
+        infowindow.setContent(location_name);
+        infowindow.open(map,marker);
+      });
 
       // adds info window to each marker -- BROKEN
-      var infowindow = new google.maps.InfoWindow({
-        content: location
-      });
-    }
-  });
-  // actually loads infowindow onClick -- BROKEN
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map,marker);
+      // infowindow = new google.maps.InfoWindow({
+      //     addMarker(i);
+      // });
+    };
   });
 
+} // end initialize
+
+/*
+infowindow = new google.maps.InfoWindow({ });
+  for (i = 0; i < myLats.length; i++) {
+    addMarker(i);
+  }
 }
+
+function addMarker(i) {
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(myLats[i],myLngs[i]),
+    map: map,
+      clickable: true
+      //icon: '". url::base() ."resources/icons/accident.png'
+    });
+
+  google.maps.event.addListener(marker, 'click', function(event) {
+    infowindow.setContent(myLocs[i]);
+    infowindow.open(map,marker);
+  });
+}
+*/
 
 function handleNoGeolocation(errorFlag) {
   if (errorFlag) {
