@@ -2,7 +2,7 @@ var map, marker;
 
 function initialize() {
   var mapOptions = {
-    zoom: 19, // 11 home, 19 LA
+    zoom: 19,
     zoomControl: true,
     zoomControlOptions: {
       style: google.maps.ZoomControlStyle.DEFAULT,
@@ -47,12 +47,10 @@ function initialize() {
   google.maps.event.addListener(map, 'click', function(event) {
     latitude = event.latLng.lat();
     longitude = event.latLng.lng();
-    //console.log( latitude + ', ' + longitude ); // outputs lat/long to console for testing
     $('#restroom_latitude').val(latitude);
     $('#restroom_longitude').val(longitude);
     placeMarker(event.latLng);
   });
-
   var infowindow = new google.maps.InfoWindow( { maxWidth: 75 });
   $.get('/restrooms.json', function(data) {
     for (var i = 0; i < data.length; i++) {
@@ -101,5 +99,4 @@ function placeMarker(location) {
   }
 }
 
-// loads map with geolocation
 google.maps.event.addDomListener(window, 'load', initialize);
