@@ -10,15 +10,36 @@
  *
  *= require_self
  *= require foundation_and_overrides
+ *= require custom_overrides
 
  *= require_tree .
  */
 
  #map-canvas {
-  height: 400px;
-  width: 400px;
+  height:400px;
+  width:400px;
   margin: 0px;
   padding: 0px
+}
+
+/* Mobile */
+@media (min-width:320px) {
+  #map-canvas {
+    height:250px;
+    width:250px;
+    margin: 0px;
+    padding: 0px
+  }
+}
+
+/* Desktop */
+@media (min-width:960px) {
+  #map-canvas {
+    height:400px;
+    width:400px;
+    margin: 0;
+    padding: 0px
+  }
 }
 
 .map img { max-width: none; height: auto }

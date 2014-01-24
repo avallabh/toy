@@ -13,13 +13,27 @@ feature 'add a restroom', %Q{
 # * Coordinates are stored in a var and autopopulate the New Restroom form
 # * User submits it
 
-  scenario 'authenticated user adds a restroom' do
-    visit root_path
-    uri = URI.parse(current_url)
+  scenario 'authenticated user tries to add a restroom without adding a marker' do
+    test = FactoryGirl.create(:user)
+    click_on 'Sign In'
+    fill_in 'Email', with: test.email
+    fill_in 'Password', with: test.password
+    click_on "Sign In"
+    # Capybara::Ambiguous error for:
+    # <input class="btn button" name="commit" type="submit" value="Sign In">
     fill_in "Location Name", with: "Dunkin Donuts"
     click_on "Add Restroom"
+    expect(page).to have_content('Place a valid marker')
+  end
+
+  scenario 'regular user tries to add a restroom' do
+
+    visit root_path
+    uri = URI.parse(current_url)
+    fill_in "Location Name", with: "Starbucks"
+    click_on "Add Restroom"
     "#{uri.path}".should == root_path
-    expect(page).to_not have_content('Place a valid marker')
+    expect(page).to have_content('You need to sign in or sign up before continuing')
   end
 
 end

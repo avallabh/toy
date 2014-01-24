@@ -1,6 +1,54 @@
-// 
+//
 // FOUNDATION SETTINGS
 //
+
+// BUTTONS
+
+// $include-html-button-classes: $include-html-classes;
+@import "foundation/components/buttons";
+.new-button {
+  $bg: #001D75;
+  @include button(false, $bg, false, false, false, false);
+}
+
+.new-button:hover {
+  $bg: #0F7525;
+  @include button(false, $bg, false, false, false, false);
+}
+
+// We use these to build padding for buttons.
+// $button-med: rem-calc(12);
+// $button-tny: rem-calc(7);
+// $button-sml: rem-calc(9);
+// $button-lrg: rem-calc(16);
+
+// We use this to control the display property.
+// $button-display: inline-block;
+// $button-margin-bottom: rem-calc(20);
+
+// We use these to control button text styles.
+// $button-font-family: inherit;
+// $button-font-color: #fff;
+// $button-font-color-alt: #333;
+// $button-font-med: rem-calc(16);
+// $button-font-tny: rem-calc(11);
+// $button-font-sml: rem-calc(13);
+// $button-font-lrg: rem-calc(20);
+// $button-font-weight: bold;
+// $button-font-align: center;
+// We use these to control various hover effects.
+// $button-function-factor: 10%;
+
+// We use these to control button border styles.
+// $button-border-width: 1px;
+// $button-border-style: solid;
+
+// We use this to set the default radius used throughout the core.
+// $button-radius: $global-radius;
+// $button-round: $global-rounded;
+
+// We use this to set default opacity for disabled buttons.
+// $button-disabled-opacity: 0.6;
 
 // Uncomment to use rem-calc() in your settings
 // @import "foundation/functions";
@@ -448,7 +496,7 @@
 // $keystroke-padding: rem-calc(2 4 0);
 
 // We use these to control background and border styles.
-// $keystroke-bg: darken(#fff, $keystroke-function-factor);
+// $keystroke-bg: darken(#000, $keystroke-function-factor);
 // $keystroke-border-style: solid;
 // $keystroke-border-width: 1px;
 // $keystroke-border-color: darken($keystroke-bg, $keystroke-function-factor);
@@ -927,7 +975,7 @@
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
+$topbar-bg-color: #001D75;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -941,9 +989,9 @@
 // $topbar-title-font-size: rem-calc(17);
 
 // Style the top bar dropdown elements
-// $topbar-dropdown-bg: #333;
-// $topbar-dropdown-link-color: #fff;
-// $topbar-dropdown-link-bg: #333;
+// $topbar-dropdown-bg: #ff0000;
+// $topbar-dropdown-link-color: #ff0000;
+// $topbar-dropdown-link-bg: #ff0000;
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: #fff;
 // $topbar-dropdown-toggle-alpha: 0.4;
@@ -955,8 +1003,8 @@
 // $topbar-link-weight: normal;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg-hover: #272727  ;
-// $topbar-link-bg-active: $primary-color;
+$topbar-link-bg-hover: #0F7525; // #001D75, #0028AD;
+$topbar-link-bg-active: #001D75; //$primary-color;
 // $topbar-link-bg-active-hover: darken($primary-color, 5%);
 // $topbar-link-font-family: $body-font-family;
 
@@ -966,7 +1014,7 @@
 // $topbar-dropdown-label-text-transform: uppercase;
 // $topbar-dropdown-label-font-weight: bold;
 // $topbar-dropdown-label-font-size: rem-calc(10);
-// $topbar-dropdown-label-bg: #333;
+// $topbar-dropdown-label-bg: 0033CC;
 
 // Top menu icon styles
 // $topbar-menu-link-transform: uppercase;
