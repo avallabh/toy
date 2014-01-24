@@ -18,17 +18,17 @@
  #map-canvas {
   height:400px;
   width:400px;
-  margin: 0px;
-  padding: 0px
+  margin: 0;
+  padding: 0
 }
 
 /* Mobile */
-@media (min-width:320px) {
+@media only screen and (min-width:320px) and (max-width: 568px) {
   #map-canvas {
-    height:250px;
-    width:250px;
-    margin: 0px;
-    padding: 0px
+    height:200px;
+    width:200px;
+    margin: 0;
+    padding: 0
   }
 }
 
