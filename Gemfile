@@ -54,6 +54,10 @@ gem 'simple_form'
 gem 'foundation-rails'
 gem 'mail_form'
 
+# group :assets do
+#   gem 'compass-rails'
+# end
+
 group :production do
   gem 'rails_12factor'
 end

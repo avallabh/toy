@@ -10,12 +10,12 @@
   <div class="small-3 columns"></div>
   <div class="small-6 small-centered columns"><div>
     <%= simple_form_for @user_feedback do |f| %>
-    <%= f.input :first_name, label: 'First Name', required: true %>
-    <%= f.input :last_name, label: 'Last Name', required: true %>
-    <%= f.input :email, required: true %>
-    <%= f.input :subject, required: true %>
-    <%= f.input :body, as: :text, required: true %>
-    <%= f.button :submit, 'Send Message', class: 'button' %>
+    <%= f.input :first_name, label: false, placeholder: 'First Name', required: true %>
+    <%= f.input :last_name, label: false, placeholder: 'Last Name', required: true %>
+    <%= f.input :email, label: false, placeholder: 'Email',required: true %>
+    <%= f.input :subject, label: false, placeholder: 'Subject', required: true %>
+    <%= f.input :body, as: :text, label: false, placeholder: 'Body', required: true %>
+    <%= f.button :submit, 'Send Message', class: 'button new-button' %>
     <% end %>
   </div>
 </div>

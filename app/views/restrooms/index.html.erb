@@ -21,13 +21,13 @@
     <% end %>
     1) Click on the map to add a marker.<br/>
     2) Enter a location name.<br/>
-    3) Add Restroom!<br/>
+    3) Add Restroom!
     <p>&nbsp;</p>
     <%= simple_form_for(@restroom) do |f| %>
-    <%= f.input :location_name, label: 'Location Name (50 character limit)', input_html: { maxlength: 50 } %>
+    <%= f.input :location_name, label: false, placeholder: 'Location Name (50 character limit)', input_html: { maxlength: 50 } %>
     <%= f.hidden_field :latitude, readonly: true %>
     <%= f.hidden_field :longitude, readonly: true%>
-    <%= f.button :submit, 'Add Restroom', class: 'button' %>
+    <%= f.button :submit, 'Add Restroom', class: 'button new-button' %>
     <% end %>
   </div>
   <!-- right side -->

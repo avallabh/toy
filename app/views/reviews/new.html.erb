@@ -18,7 +18,7 @@
     <%= f.input :baby_station, collection: ['Unknown', 'Yes', 'No'], selected: 'Unknown'  %>
     <%= f.input :comments, label: 'Comments (500 character limit)', as: :text, input_html: { maxlength: 500 } %>
     <%= f.hidden_field :user_id, value: current_user.id, readonly: true %>
-    <%= f.button :submit, 'Add Review', class: 'button' %>
+    <%= f.button :submit, 'Add Review', class: 'button new-button' %>
     <% end %>
   </div>
   <div class="small-3 columns"></div>
