@@ -18,7 +18,7 @@
   <![endif]-->
 </head>
 
-<body>
+<body id="continue">
   <!-- BEGIN TOP NAV BAR -->
   <nav class="top-bar" data-topbar>
     <ul class="title-area">
@@ -56,6 +56,6 @@
     <%= content_tag :div, msg, class: "#{name} alert-box" %>
     <% end -%>
     <%= yield %>
-    <%= javascript_include_tag "application" %>
+     <%= javascript_include_tag "application" %>
   </body>
   </html>
