@@ -31,7 +31,7 @@ function initialize() {
       infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
-        content: 'Current location'
+        content: 'Your Location'
       });
 
       map.setCenter(pos);
