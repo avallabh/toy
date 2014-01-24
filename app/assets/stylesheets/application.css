@@ -23,23 +23,23 @@
 }
 
 /* Mobile */
-/*@media only screen and (min-width:320px) and (max-width: 568px) {
+@media only screen and (min-width:320px) and (max-width: 568px) {
   #map-canvas {
-    height:200px;
-    width:200px;
+    height:250px;
+    width:250px;
     margin: 0;
     padding: 0
   }
-}*/
+}
 
 /* Desktop */
-/*@media (min-width:960px) {
+@media (min-width:960px) {
   #map-canvas {
     height:400px;
     width:400px;
     margin: 0;
     padding: 0px
   }
-}*/
+}
 
 .map img { max-width: none; height: auto }
