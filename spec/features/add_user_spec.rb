@@ -47,13 +47,40 @@ So I can add restaurants and reviews
     fill_in "First Name", with: "Joe"
     fill_in "Last Name", with: "Smith"
     fill_in "Email", with: email
-    # fill_in "Confirm Email", with: email
     fill_in "user_password", with: "password"
     fill_in "Password Confirmation", with: "theyDontMatch"
     click_button "Sign Up"
 
     expect(page).to have_content("doesn't match")
     expect(page).to_not have_content("Sign Out")
+  end
+
+  scenario 'registered user correctly signs in' do
+    test = FactoryGirl.create(:user)
+
+    visit root_path
+    click_on "Sign In"
+    fill_in "Email", with: test.email
+    fill_in "Password", with: test.password
+    click_button "Sign In"
+
+    expect(page).to have_content('Welcome back')
+    expect(page).to_not have_content('Sign In')
+    expect(page).to_not have_content('Error')
+  end
+
+  scenario 'registered user does not correctly sign in' do
+    test = FactoryGirl.create(:user)
+
+    visit root_path
+    click_on "Sign In"
+    fill_in "Email", with: test.email
+    fill_in "Password", with: '12345678'
+    click_button "Sign In"
+
+    expect(page).to_not have_content('Welcome back')
+    expect(page).to have_content('Sign In')
+    expect(page).to have_content('Invalid email or password')
   end
 
 end
