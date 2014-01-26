@@ -15,13 +15,13 @@ feature 'add a restroom', %Q{
 
   scenario 'authenticated user tries to add a restroom without adding a marker' do
     test = FactoryGirl.create(:user)
+    visit root_path
     click_on 'Sign In'
     fill_in 'Email', with: test.email
     fill_in 'Password', with: test.password
-    click_on "Sign In"
-    # Capybara::Ambiguous error for:
-    # <input class="btn button" name="commit" type="submit" value="Sign In">
-    fill_in "Location Name", with: "Dunkin Donuts"
+    within '.form-actions' do
+      click_on "Sign In"
+    end
     click_on "Add Restroom"
     expect(page).to have_content('Place a valid marker')
   end
@@ -30,7 +30,6 @@ feature 'add a restroom', %Q{
 
     visit root_path
     uri = URI.parse(current_url)
-    fill_in "Location Name", with: "Starbucks"
     click_on "Add Restroom"
     "#{uri.path}".should == root_path
     expect(page).to have_content('You need to sign in or sign up before continuing')

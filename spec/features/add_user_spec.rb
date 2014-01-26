@@ -21,7 +21,6 @@ So I can add restaurants and reviews
     fill_in "First Name", with: "Joe"
     fill_in "Last Name", with: "Smith"
     fill_in "Email", with: email
-    # fill_in "Confirm Email", with: email
     fill_in "user_password", with: password
     fill_in "Password Confirmation", with: password
     click_button "Sign Up"
