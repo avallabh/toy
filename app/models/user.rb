@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :reviews,
     inverse_of: :user
 
-  has_many :restrooms, #, through: :reviews,
+  has_many :restrooms, through: :reviews,
     inverse_of: :user
 
   # Include default devise modules. Others available are:

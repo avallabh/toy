@@ -4,10 +4,10 @@ class Restroom < ActiveRecord::Base
   validates_presence_of :latitude
   validates_presence_of :longitude
 
-  has_many :reviews,
+  has_many :reviews, dependent: :destroy,
     inverse_of: :restroom
 
-  has_many :users, #, through: :reviews,
+  has_many :users, through: :reviews,
     inverse_of: :restroom
 
   def address
