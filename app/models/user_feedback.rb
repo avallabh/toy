@@ -1,7 +1,7 @@
 class UserFeedback < MailForm::Base
   attribute :first_name, validate: true
   attribute :last_name, validate: true
-  attribute :email, validate: /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
+  attribute :email, validate: /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/
   attribute :subject, validate: true
   attribute :body, validate: true
 
