@@ -14,17 +14,19 @@ So others can read my feedback
 # * Reviews are stored per restroom
 # * All reviews are listed when visiting a restroom
 
-=begin
-## THIS FEATURE WORKS IN TEST/PRODUCTION
-## CAPYBARA DOES NOT LIKE THE DROPDOWNS
+  let(:user) { FactoryGirl.create(:user) }
+  let(:test) { FactoryGirl.create(:restroom) }
+
   scenario 'authenticated user adds a review' do
-    # Not sure how to test based on JS actions
-    # Skipping that part for now
-    test = FactoryGirl.create(:restroom)
+    visit root_path
+    click_on "Sign In"
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Sign In"
 
     visit "restrooms/#{test.id}"
     click_on "Add Review"
-    select "5", from: "Cleanliness" # review_cleanliness
+    select "5", from: "Cleanliness"
     select "5", from: "Privacy"
     select "5", from: "Smell"
     select "Unisex", from: "Gender"
@@ -36,12 +38,16 @@ So others can read my feedback
     expect(page).to_not have_content("can't be blank")
     expect(page).to_not have_content('Sign In')
   end
-=end
-  scenario 'user who is not signed in tries to add a review' do
-    test = FactoryGirl.create(:restroom)
 
-    visit "restrooms/#{test.id}"
-    click_on "Add Review"
+
+  scenario "user who is not signed in doesn't see Add Review" do
+    visit "/restrooms/#{test.id}"
+
+    expect(page).to_not have_content('Add Review')
+  end
+
+  scenario "user who is not signed in visits new review URL directly" do
+    visit "/restrooms/#{test.id}/reviews/new"
 
     expect(page).to have_content('You need to sign in or sign up before continuing.')
   end

@@ -9,29 +9,33 @@ feature 'add a restroom', %Q{
 
 # ACCEPTANCE CRITERIA
 # * User is signed in
-# * User clicks on the map to add a marker, then clicks Add Restroom
-# * Coordinates are stored in a var and autopopulate the New Restroom form
-# * User submits it
+# * User clicks on the map to add a marker, then fills out a location name
+# * User clicks add restroom
+# * Restroom added to database, marker displays on map
+
+### JavaScript testing should be done with Selenium
+
+  let(:user) { FactoryGirl.create(:user) }
 
   scenario 'authenticated user tries to add a restroom without adding a marker' do
-    test = FactoryGirl.create(:user)
     visit root_path
     click_on 'Sign In'
-    fill_in 'Email', with: test.email
-    fill_in 'Password', with: test.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     within '.form-actions' do
       click_on "Sign In"
     end
     click_on "Add Restroom"
+
     expect(page).to have_content('Place a valid marker')
   end
 
-  scenario 'regular user tries to add a restroom' do
-
+  scenario 'unauthenticated user tries to add a restroom' do
     visit root_path
-    uri = URI.parse(current_url)
+    # uri = URI.parse(current_url)
     click_on "Add Restroom"
-    "#{uri.path}".should == root_path
+    # "#{uri.path}".should == root_path
+
     expect(page).to have_content('You need to sign in or sign up before continuing')
   end
 

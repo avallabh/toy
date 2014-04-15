@@ -12,6 +12,8 @@ So I can add restaurants and reviews
 #   email, retype email (must match email)
 # * If signed in, display sign-out option
 
+  let(:user) { FactoryGirl.create(:user) }
+
   scenario 'user signs up' do
     password = "password"
     email = "person@example.com"
@@ -40,14 +42,12 @@ So I can add restaurants and reviews
   end
 
   scenario 'password confirmation' do
-    email = "person@example.com"
-
     visit root_path
     click_link "Sign Up"
-    fill_in "First Name", with: "Joe"
-    fill_in "Last Name", with: "Smith"
-    fill_in "Email", with: email
-    fill_in "user_password", with: "password"
+    fill_in "First Name", with: user.first_name
+    fill_in "Last Name", with: user.last_name
+    fill_in "Email", with: user.email
+    fill_in "user_password", with: user.password
     fill_in "Password Confirmation", with: "theyDontMatch"
     click_button "Sign Up"
 
@@ -56,12 +56,10 @@ So I can add restaurants and reviews
   end
 
   scenario 'registered user correctly signs in' do
-    test = FactoryGirl.create(:user)
-
     visit root_path
     click_on "Sign In"
-    fill_in "Email", with: test.email
-    fill_in "Password", with: test.password
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
     click_button "Sign In"
 
     expect(page).to have_content('Welcome back')
@@ -70,11 +68,9 @@ So I can add restaurants and reviews
   end
 
   scenario 'registered user does not correctly sign in' do
-    test = FactoryGirl.create(:user)
-
     visit root_path
     click_on "Sign In"
-    fill_in "Email", with: test.email
+    fill_in "Email", with: user.email
     fill_in "Password", with: '12345678'
     click_button "Sign In"
 
