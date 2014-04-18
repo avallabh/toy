@@ -16,6 +16,5 @@
 /tmp
 
 .notes/
-.env
 .ruby_version
 .ruby_gemset
